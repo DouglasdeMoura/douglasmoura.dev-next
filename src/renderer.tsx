@@ -2,7 +2,7 @@ import { jsxRenderer } from 'hono/jsx-renderer'
 
 export const renderer = jsxRenderer(({ children }) => {
   return (
-    <html>
+    <html lang="pt-BR">
       <head>
         <link href="/static/style.css" rel="stylesheet" />
       </head>
