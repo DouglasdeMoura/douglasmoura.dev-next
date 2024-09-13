@@ -24,7 +24,7 @@ describe('Post Repository', () => {
   it('should create a new post', async () => {
     const id = await PostRepository.create(post)
 
-    expect(writeFile).toHaveBeenCalledWith('./src/posts/mocked_value.md', post.toString())
+    expect(writeFile).toHaveBeenCalledWith('./src/database/posts/mocked_value.md', post.toString())
     expect(id).toBe('mocked_value')
   })
 
@@ -44,7 +44,18 @@ describe('Post Repository', () => {
   it('should update a post', async () => {
     const id = await PostRepository.update(post)
 
-    expect(writeFile).toHaveBeenCalledWith('./src/posts/mocked_value.md', post.toString())
+    expect(writeFile).toHaveBeenCalledWith('./src/database/posts/mocked_value.md', post.toString())
     expect(id).toBe('mocked_value')
+  })
+
+  it('should return null when post is not found', async () => {
+    const id = 'id_not_found'
+    const post = await PostRepository.getById(id)
+
+    expect(post).toBeNull()
+  })
+
+  it('shoul return posts path', () => {
+    expect(PostRepository.postsPath).toBe('./src/database/posts')
   })
 })

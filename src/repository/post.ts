@@ -6,7 +6,7 @@ import { generatePostId } from '../services/generate-post-id.js'
 
 class PostRepository {
   get postsPath() {
-    return './src/posts'
+    return './src/database/posts'
   }
 
   private async postsFileList() {
