@@ -10,7 +10,7 @@ class PostRepository {
   }
 
   private async postsFileList() {
-    return fs.readdir(this.postsPath)
+    return (await fs.readdir(this.postsPath)).map(file => `${this.postsPath}/${file}`)
   }
 
   async create(post: PostEntity) {
@@ -28,7 +28,7 @@ class PostRepository {
       return null
     }
 
-    const { data, content } = matter.read(`${this.postsPath}/${path}`)
+    const { data, content } = matter.read(path)
 
     return new PostEntity({
       id: data.id,
@@ -47,6 +47,32 @@ class PostRepository {
     await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
 
     return id
+  }
+
+  async paginate(ofsset = 0, limit = 10) {
+    const files = (await this.postsFileList()).slice(ofsset, ofsset + limit)
+
+    const posts = await Promise.all(files.map(async file => {
+      const { data, content } = matter.read(file)
+
+      return new PostEntity({
+        id: data.id,
+        title: data.title,
+        locale: data.locale,
+        created: new Date(data.created),
+        updated: new Date(data.updated),
+        content: content,
+        tags: data.tags.split(', '),
+        translates: data.translates
+      })
+    }))
+
+    return {
+      total: files.length,
+      ofsset,
+      limit, 
+      items: posts,
+    }
   }
 }
 

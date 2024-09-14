@@ -55,7 +55,13 @@ describe('Post Repository', () => {
     expect(post).toBeNull()
   })
 
-  it('shoul return posts path', () => {
+  it('should return posts path', () => {
     expect(PostRepository.postsPath).toBe('./src/database/posts')
+  })
+
+  it('should return a list of posts', async () => {
+    const posts = await PostRepository.paginate(0, 1)
+
+    expect(posts.items[0]).toBeInstanceOf(PostEntity)
   })
 })
