@@ -41,6 +41,19 @@ describe('Post Repository', () => {
     expect(post.tags).toEqual(['offtopic'])
   })
 
+  it('should pick a post by slug', async () => {
+    const slug = 'ola-mundo'
+    const post = await PostRepository.getBySlug(slug) as PostEntity
+
+    expect(post).toBeInstanceOf(PostEntity)
+    expect(post.id).toBe('7ba8zyw9of4afcw')
+    expect(post.title).toBe('Olá mundo')
+    expect(post.locale).toBe('pt-BR')
+    expect(post.created.toISOString()).toBe('2021-01-01T15:00:00.000Z')
+    expect(post.content.length).toBeGreaterThan(0)
+    expect(post.tags).toEqual(['offtopic'])
+  })
+
   it('should update a post', async () => {
     const id = await PostRepository.update(post)
 

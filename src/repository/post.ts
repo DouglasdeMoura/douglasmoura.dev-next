@@ -42,6 +42,28 @@ class PostRepository {
     })
   }
 
+  async getBySlug(slug: string) {
+    const files = (await this.postsFileList()).filter(file => file.includes(slug))
+    const path = files?.[0]
+
+    if (!path) {
+      return null
+    }
+
+    const { data, content } = matter.read(path)
+
+    return new PostEntity({
+      id: data.id,
+      title: data.title,
+      locale: data.locale,
+      created: new Date(data.created),
+      updated: new Date(data.updated),
+      content: content,
+      tags: data.tags.split(', '),
+      translates: data.translates
+    })
+  }
+
   async update(post: PostEntity) {
     const id = generatePostId({ created: post.created, title: post.title })
     await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
