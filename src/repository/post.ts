@@ -49,9 +49,13 @@ class PostRepository {
     return id
   }
 
-  async paginate(ofsset = 0, limit = 10) {
-    const files = (await this.postsFileList()).slice(ofsset, ofsset + limit)
-
+  async paginate(page = 1, limit = 10) {
+    const list = await this.postsFileList()
+    const totalPosts = list.length
+    const totalPages = Math.ceil(totalPosts / limit)
+    const start = page > 1 ? (page - 1) * limit : 0
+    const files = list.slice(start, start + limit)
+    
     const posts = await Promise.all(files.map(async file => {
       const { data, content } = matter.read(file)
 
@@ -68,9 +72,9 @@ class PostRepository {
     }))
 
     return {
-      total: files.length,
-      ofsset,
-      limit, 
+      currentPage: page,
+      pages: totalPages,
+      posts: totalPosts,
       items: posts,
     }
   }
