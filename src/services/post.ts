@@ -1,7 +1,7 @@
 import type { PostEntity } from '../entities/post.js'
 import postRepository, { type PostRepository } from '../repository/post.js'
 
-class PostService {
+export class PostService {
   repository: PostRepository
 
   constructor() {

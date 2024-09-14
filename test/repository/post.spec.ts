@@ -13,7 +13,7 @@ vi.spyOn(services, 'generatePostId').mockReturnValue('mocked_value')
 
 const post = new PostEntity({
   id: '7ba8zyw9of4afcw',
-  title: 'Olá mundo',
+  title: 'Olá, mundo',
   locale: 'pt-BR',
   created: new Date('2021-01-01 15:00:00.000Z'),
   content: 'Hello, World!',
@@ -34,7 +34,7 @@ describe('Post Repository', () => {
 
     expect(post).toBeInstanceOf(PostEntity)
     expect(post.id).toBe(id)
-    expect(post.title).toBe('Olá mundo')
+    expect(post.title).toBe('Olá, mundo')
     expect(post.locale).toBe('pt-BR')
     expect(post.created.toISOString()).toBe('2021-01-01T15:00:00.000Z')
     expect(post.content.length).toBeGreaterThan(0)
@@ -47,7 +47,7 @@ describe('Post Repository', () => {
 
     expect(post).toBeInstanceOf(PostEntity)
     expect(post.id).toBe('7ba8zyw9of4afcw')
-    expect(post.title).toBe('Olá mundo')
+    expect(post.title).toBe('Olá, mundo')
     expect(post.locale).toBe('pt-BR')
     expect(post.created.toISOString()).toBe('2021-01-01T15:00:00.000Z')
     expect(post.content.length).toBeGreaterThan(0)
