@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import { PostEntity } from '../entities/post.js'
 import { generatePostId } from '../services/generate-post-id.js'
 
-class PostRepository {
+export class PostRepository {
   get postsPath() {
     return './src/database/posts'
   }
