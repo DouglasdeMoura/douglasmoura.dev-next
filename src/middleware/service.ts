@@ -11,7 +11,7 @@ export type ServiceEnv = {
 
 export const service = createMiddleware<ServiceEnv>(async (c, next) => {
   c.set('service', {
-    post: postService
+    post: postService,
   })
 
   await next()

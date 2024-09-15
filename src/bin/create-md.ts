@@ -1,5 +1,5 @@
+import fs from 'node:fs'
 import posts from '../database/posts.json'
-import fs from 'fs'
 
 type Post = {
   collectionId: string
@@ -47,7 +47,15 @@ type Res = {
 }
 
 const createMarkdown = (post: Post) => {
-  const { id, locale, title, content, created, updated, expand: { featuredImage, tags } } = post
+  const {
+    id,
+    locale,
+    title,
+    content,
+    created,
+    updated,
+    expand: { featuredImage, tags },
+  } = post
   const tagString = tags.map(({ name }) => name).join(', ')
   const markdown = `---
 id: ${id}
@@ -65,11 +73,11 @@ ${content}
 
 const main = async () => {
   const response: Res = posts
-  response.items.forEach((post) => {
-    const markdown= createMarkdown(post)
+  for (const post of response.items) {
+    const markdown = createMarkdown(post)
     const date = new Date(post.created).toISOString().split('T')[0]
     fs.writeFileSync(`./src/posts/${date}_${post.id}_${post.slug}.md`, markdown)
-  })
+  }
 }
 
 main()

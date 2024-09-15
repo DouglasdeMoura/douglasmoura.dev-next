@@ -10,7 +10,9 @@ export class PostRepository {
   }
 
   private async postsFileList() {
-    return (await fs.readdir(this.postsPath)).map(file => `${this.postsPath}/${file}`)
+    return (await fs.readdir(this.postsPath)).map(
+      (file) => `${this.postsPath}/${file}`,
+    )
   }
 
   async create(post: PostEntity) {
@@ -21,7 +23,9 @@ export class PostRepository {
   }
 
   async getById(id: string) {
-    const files = (await this.postsFileList()).filter(file => file.includes(id))
+    const files = (await this.postsFileList()).filter((file) =>
+      file.includes(id),
+    )
     const path = files?.[0]
 
     if (!path) {
@@ -38,12 +42,14 @@ export class PostRepository {
       updated: new Date(data.updated),
       content: content,
       tags: data.tags.split(', '),
-      translates: data.translates
+      translates: data.translates,
     })
   }
 
   async getBySlug(slug: string) {
-    const files = (await this.postsFileList()).filter(file => file.includes(slug))
+    const files = (await this.postsFileList()).filter((file) =>
+      file.includes(slug),
+    )
     const path = files?.[0]
 
     if (!path) {
@@ -60,7 +66,7 @@ export class PostRepository {
       updated: new Date(data.updated),
       content: content,
       tags: data.tags.split(', '),
-      translates: data.translates
+      translates: data.translates,
     })
   }
 
@@ -77,21 +83,23 @@ export class PostRepository {
     const totalPages = Math.ceil(totalPosts / limit)
     const start = page > 1 ? (page - 1) * limit : 0
     const files = list.slice(start, start + limit)
-    
-    const posts = await Promise.all(files.map(async file => {
-      const { data, content } = matter.read(file)
 
-      return new PostEntity({
-        id: data.id,
-        title: data.title,
-        locale: data.locale,
-        created: new Date(data.created),
-        updated: new Date(data.updated),
-        content: content,
-        tags: data.tags.split(', '),
-        translates: data.translates
-      })
-    }))
+    const posts = await Promise.all(
+      files.map(async (file) => {
+        const { data, content } = matter.read(file)
+
+        return new PostEntity({
+          id: data.id,
+          title: data.title,
+          locale: data.locale,
+          created: new Date(data.created),
+          updated: new Date(data.updated),
+          content: content,
+          tags: data.tags.split(', '),
+          translates: data.translates,
+        })
+      }),
+    )
 
     return {
       currentPage: page,

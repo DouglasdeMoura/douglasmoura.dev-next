@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid'
 import slugify from '@sindresorhus/slugify'
+import { nanoid } from 'nanoid'
 
 type GeneratePostIdArgs = {
   title: string

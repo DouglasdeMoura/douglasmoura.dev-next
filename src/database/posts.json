@@ -35,9 +35,7 @@
       "id": "7ba8zyw9of4afcw",
       "locale": "pt-BR",
       "slug": "ola-mundo",
-      "tags": [
-        "zdhqw94mt8mmu5n"
-      ],
+      "tags": ["zdhqw94mt8mmu5n"],
       "title": "Olá mundo",
       "translates": "",
       "type": "",
@@ -83,10 +81,7 @@
       "id": "qky4tlh4sx84esg",
       "locale": "pt-BR",
       "slug": "como-criar-um-indicador-de-carregamento-perfeito-para-seus-web-apps",
-      "tags": [
-        "k598t18ogzejjqr",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["k598t18ogzejjqr", "flr0q50cdxdevwf"],
       "title": "Como criar um indicador de carregamento perfeito para seus web apps",
       "translates": "",
       "type": "",
@@ -132,10 +127,7 @@
       "id": "1z3ovbccz4z4tmh",
       "locale": "pt-BR",
       "slug": "use-este-script-do-npm-para-gerar-seus-arquivos-do-editorconfig",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "k598t18ogzejjqr"
-      ],
+      "tags": ["flr0q50cdxdevwf", "k598t18ogzejjqr"],
       "title": "Use este script do NPM para gerar seus arquivos do EditorConfig",
       "translates": "",
       "type": "",
@@ -323,11 +315,7 @@
       "id": "7p8vdcau7gg894b",
       "locale": "en-US",
       "slug": "how-to-extend-html-elements-with-react",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "qt21slh77am05fk",
-        "61fp4rzq5kdvudk"
-      ],
+      "tags": ["flr0q50cdxdevwf", "qt21slh77am05fk", "61fp4rzq5kdvudk"],
       "title": " How to extend HTML elements with React",
       "translates": "",
       "type": "",
@@ -448,11 +436,7 @@
       "id": "fccw7a1zbkshukm",
       "locale": "en-US",
       "slug": "use-github-actions-to-publish-your-package-on-npm",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "qt21slh77am05fk",
-        "r9kzz4o66qdciei"
-      ],
+      "tags": ["flr0q50cdxdevwf", "qt21slh77am05fk", "r9kzz4o66qdciei"],
       "title": "Use GitHub actions to publish your package on NPM",
       "translates": "",
       "type": "",
@@ -632,10 +616,7 @@
       "id": "i9fkingsi8pcbqk",
       "locale": "en-US",
       "slug": "introduction-to-graphql",
-      "tags": [
-        "ya5wtg97c5245ae",
-        "360mggh43k6fmye"
-      ],
+      "tags": ["ya5wtg97c5245ae", "360mggh43k6fmye"],
       "title": " Introduction to GraphQL",
       "translates": "",
       "type": "",
@@ -689,11 +670,7 @@
       "id": "6cotdaubg05n32i",
       "locale": "pt-BR",
       "slug": "ano-novo-blog-novo-ou-como-eu-criei-este-blog-para-2023",
-      "tags": [
-        "360mggh43k6fmye",
-        "ifd44w7ryiega3c",
-        "8q3ablocdo26xwm"
-      ],
+      "tags": ["360mggh43k6fmye", "ifd44w7ryiega3c", "8q3ablocdo26xwm"],
       "title": "Ano novo, blog novo (ou como eu criei este blog para 2023)",
       "translates": "",
       "type": "",
@@ -747,11 +724,7 @@
       "id": "l1ko9m5j8svvm88",
       "locale": "en-US",
       "slug": "new-year-new-blog-or-how-i-created-this-blog-for-2023",
-      "tags": [
-        "8q3ablocdo26xwm",
-        "360mggh43k6fmye",
-        "ifd44w7ryiega3c"
-      ],
+      "tags": ["8q3ablocdo26xwm", "360mggh43k6fmye", "ifd44w7ryiega3c"],
       "title": "New year, new blog (or how I created this blog for 2023)",
       "translates": "6cotdaubg05n32i",
       "type": "",
@@ -797,10 +770,7 @@
       "id": "oxiuks4pe1et1ku",
       "locale": "pt-BR",
       "slug": "o-protocolo-da-internet-ip",
-      "tags": [
-        "h1v3dvj2nl4wfkv",
-        "zerxmcw24316mfv"
-      ],
+      "tags": ["h1v3dvj2nl4wfkv", "zerxmcw24316mfv"],
       "title": "O protocolo da internet (IP)",
       "translates": "",
       "type": "",
@@ -838,9 +808,7 @@
       "id": "e62l4z2ckms6roz",
       "locale": "pt-BR",
       "slug": "como-fazer-um-push-de-um-commit-vazio-no-git",
-      "tags": [
-        "kambf4yw9nesptg"
-      ],
+      "tags": ["kambf4yw9nesptg"],
       "title": "Como fazer um push de um commit vazio no Git",
       "translates": "",
       "type": "",
@@ -878,9 +846,7 @@
       "id": "l63ql849ju0fg4l",
       "locale": "en-US",
       "slug": "how-to-push-an-empty-commit-on-git",
-      "tags": [
-        "kambf4yw9nesptg"
-      ],
+      "tags": ["kambf4yw9nesptg"],
       "title": "How to push an empty commit on Git?",
       "translates": "e62l4z2ckms6roz",
       "type": "",
@@ -918,9 +884,7 @@
       "id": "hf1qmggdzmgfgiz",
       "locale": "pt-BR",
       "slug": "slides-da-palestra-design-system-com-tailwind-css-da-conferencia-css-brasil-2023",
-      "tags": [
-        "gv4eayvowuncykv"
-      ],
+      "tags": ["gv4eayvowuncykv"],
       "title": "Slides da palestra \"Design System com Tailwind CSS\" da Conferência CSS Brasil 2023",
       "translates": "",
       "type": "",
@@ -966,10 +930,7 @@
       "id": "j5ouuw7zm51z2ts",
       "locale": "en-US",
       "slug": "using-fetch-with-typescript",
-      "tags": [
-        "qt21slh77am05fk",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["qt21slh77am05fk", "flr0q50cdxdevwf"],
       "title": "Using fetch with TypeScript",
       "translates": "k9f6b2e2nioulc6",
       "type": "",
@@ -1015,10 +976,7 @@
       "id": "k9f6b2e2nioulc6",
       "locale": "pt-BR",
       "slug": "usando-fetch-com-typescript",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "qt21slh77am05fk"
-      ],
+      "tags": ["flr0q50cdxdevwf", "qt21slh77am05fk"],
       "title": "Usando fetch com TypeScript",
       "translates": "j5ouuw7zm51z2ts",
       "type": "",
@@ -1064,10 +1022,7 @@
       "id": "atlbwc7th1nnlm9",
       "locale": "pt-BR",
       "slug": "aprenda-como-os-programas-sao-executados-no-computador",
-      "tags": [
-        "b0z2xhyji9ohphd",
-        "i793k0f9d2xg5td"
-      ],
+      "tags": ["b0z2xhyji9ohphd", "i793k0f9d2xg5td"],
       "title": "Aprenda como os programas são executados no computador",
       "translates": "",
       "type": "",
@@ -1121,11 +1076,7 @@
       "id": "066kuym52jk3nbp",
       "locale": "pt-BR",
       "slug": "criando-modais-nativos-com-o-elemento-dialog",
-      "tags": [
-        "cw2qlp43ya5e5gx",
-        "flr0q50cdxdevwf",
-        "k598t18ogzejjqr"
-      ],
+      "tags": ["cw2qlp43ya5e5gx", "flr0q50cdxdevwf", "k598t18ogzejjqr"],
       "title": "Criando modais nativos com o elemento dialog",
       "translates": "pd682cq57ureywz",
       "type": "",
@@ -1179,11 +1130,7 @@
       "id": "pd682cq57ureywz",
       "locale": "en-US",
       "slug": "creating-native-modals-with-the-dialog-element",
-      "tags": [
-        "k598t18ogzejjqr",
-        "flr0q50cdxdevwf",
-        "cw2qlp43ya5e5gx"
-      ],
+      "tags": ["k598t18ogzejjqr", "flr0q50cdxdevwf", "cw2qlp43ya5e5gx"],
       "title": "Creating native modals with the dialog element",
       "translates": "066kuym52jk3nbp",
       "type": "",
@@ -1237,11 +1184,7 @@
       "id": "jyetft1jka7szdn",
       "locale": "pt-BR",
       "slug": "como-calcular-o-raio-da-borda-de-elementos-aninhados",
-      "tags": [
-        "7ps65tqozbv5x4h",
-        "jsjeyfia8s84dve",
-        "i793k0f9d2xg5td"
-      ],
+      "tags": ["7ps65tqozbv5x4h", "jsjeyfia8s84dve", "i793k0f9d2xg5td"],
       "title": "Como calcular o raio da borda (border-radius) de elementos aninhados",
       "translates": "afekje3ez7b2byc",
       "type": "",
@@ -1362,11 +1305,7 @@
       "id": "5ufu9x2h9ilz2jr",
       "locale": "pt-BR",
       "slug": "o-minimo-que-voce-precisa-saber-para-testar-suas-apis-com-curl",
-      "tags": [
-        "habgbvzfqo6045y",
-        "qgif4z5ad7df5sm",
-        "i6os14h5li2u0k5"
-      ],
+      "tags": ["habgbvzfqo6045y", "qgif4z5ad7df5sm", "i6os14h5li2u0k5"],
       "title": "O mínimo que você precisa saber para testar suas APIs com CURL",
       "translates": "pgltwbdkto3gado",
       "type": "",
@@ -1420,11 +1359,7 @@
       "id": "pgltwbdkto3gado",
       "locale": "en-US",
       "slug": "the-minimum-you-need-to-know-to-test-your-apis-with-curl",
-      "tags": [
-        "habgbvzfqo6045y",
-        "qgif4z5ad7df5sm",
-        "i6os14h5li2u0k5"
-      ],
+      "tags": ["habgbvzfqo6045y", "qgif4z5ad7df5sm", "i6os14h5li2u0k5"],
       "title": "The minimum you need to know to test your APIs with CURL",
       "translates": "5ufu9x2h9ilz2jr",
       "type": "",
@@ -1470,10 +1405,7 @@
       "id": "afekje3ez7b2byc",
       "locale": "en-US",
       "slug": "how-to-calculate-the-border-radius-of-nested-elements",
-      "tags": [
-        "7ps65tqozbv5x4h",
-        "jsjeyfia8s84dve"
-      ],
+      "tags": ["7ps65tqozbv5x4h", "jsjeyfia8s84dve"],
       "title": "How to calculate the border-radius of nested elements",
       "translates": "jyetft1jka7szdn",
       "type": "",
@@ -1586,10 +1518,7 @@
       "id": "o5per7i8c1wiyp5",
       "locale": "pt-BR",
       "slug": "o-que-sao-padroes-de-projeto-na-engenharia-de-software",
-      "tags": [
-        "19ctj7ylfk0tw5u",
-        "e2b8l1qygiohhse"
-      ],
+      "tags": ["19ctj7ylfk0tw5u", "e2b8l1qygiohhse"],
       "title": "O que são padrões de projeto na engenharia de software?",
       "translates": "",
       "type": "",
@@ -1635,10 +1564,7 @@
       "id": "r244td2x5346p6e",
       "locale": "pt-BR",
       "slug": "configurando-variaveis-de-ambiente-em-aplicacoes-node-js",
-      "tags": [
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["uswdhycu2qo71dt", "flr0q50cdxdevwf"],
       "title": "Configurando variáveis de ambiente em aplicações Node.js",
       "translates": "",
       "type": "",
@@ -1692,11 +1618,7 @@
       "id": "jdwjqfxbwki78t2",
       "locale": "pt-BR",
       "slug": "dissecando-urls-com-javascript",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "k598t18ogzejjqr",
-        "uswdhycu2qo71dt"
-      ],
+      "tags": ["flr0q50cdxdevwf", "k598t18ogzejjqr", "uswdhycu2qo71dt"],
       "title": "Dissecando URLs com JavaScript",
       "translates": "",
       "type": "",
@@ -1750,11 +1672,7 @@
       "id": "7wlztbazb3q2ovr",
       "locale": "pt-BR",
       "slug": "desenvolvendo-apis-fortemente-tipadas-de-ponta-a-ponta-com-trpc",
-      "tags": [
-        "qt21slh77am05fk",
-        "qgif4z5ad7df5sm",
-        "dkv9a8a4isstzvh"
-      ],
+      "tags": ["qt21slh77am05fk", "qgif4z5ad7df5sm", "dkv9a8a4isstzvh"],
       "title": "Desenvolvendo APIs fortemente tipadas de ponta a ponta com tRPC",
       "translates": "",
       "type": "",
@@ -1875,11 +1793,7 @@
       "id": "5d4agn9wp8tkd45",
       "locale": "en-US",
       "slug": "finding-the-greatest-common-divisor-in-typescript",
-      "tags": [
-        "qt21slh77am05fk",
-        "mpie23nzxyffqro",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["qt21slh77am05fk", "mpie23nzxyffqro", "flr0q50cdxdevwf"],
       "title": "Finding the greatest common divisor in TypeScript",
       "translates": "vfb16zvqx9d6eq8",
       "type": "post",
@@ -1933,11 +1847,7 @@
       "id": "l2hgc45s729in42",
       "locale": "pt-BR",
       "slug": "multiplas-de-somar-os-valores-de-um-array-de-objetos-em-typescript",
-      "tags": [
-        "cw2qlp43ya5e5gx",
-        "qt21slh77am05fk",
-        "0zpy7tyiew1ifq7"
-      ],
+      "tags": ["cw2qlp43ya5e5gx", "qt21slh77am05fk", "0zpy7tyiew1ifq7"],
       "title": "Múltiplas formas de somar os valores de um array de objetos, em TypeScript",
       "translates": "",
       "type": "",
@@ -1991,11 +1901,7 @@
       "id": "jbn0kg24q86k7vn",
       "locale": "pt-BR",
       "slug": "o-programador-poderoso",
-      "tags": [
-        "19ctj7ylfk0tw5u",
-        "e2b8l1qygiohhse",
-        "tmoq463uig8bsda"
-      ],
+      "tags": ["19ctj7ylfk0tw5u", "e2b8l1qygiohhse", "tmoq463uig8bsda"],
       "title": "O programador poderoso",
       "translates": "wxuu4bshveoe7ld",
       "type": "post",
@@ -2041,10 +1947,7 @@
       "id": "zj7xcfn2r753ld7",
       "locale": "pt-BR",
       "slug": "gerando-hashes-md-5-no-node-js",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "uswdhycu2qo71dt"
-      ],
+      "tags": ["flr0q50cdxdevwf", "uswdhycu2qo71dt"],
       "title": "Gerando hashes MD5 no Node.js",
       "translates": "bdwhaei947bfrx4",
       "type": "post",
@@ -2090,10 +1993,7 @@
       "id": "bdwhaei947bfrx4",
       "locale": "en-US",
       "slug": "generating-md5-hashes-on-node-js",
-      "tags": [
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["uswdhycu2qo71dt", "flr0q50cdxdevwf"],
       "title": "Generating MD5 hashes on Node.js",
       "translates": "zj7xcfn2r753ld7",
       "type": "post",
@@ -2147,11 +2047,7 @@
       "id": "wxuu4bshveoe7ld",
       "locale": "en-US",
       "slug": "the-powerful-programmer",
-      "tags": [
-        "z3ug0w81yto7xwm",
-        "ys66medp2gdvr2q",
-        "l0imrsrgimhkekx"
-      ],
+      "tags": ["z3ug0w81yto7xwm", "ys66medp2gdvr2q", "l0imrsrgimhkekx"],
       "title": "The Powerful Programmer",
       "translates": "jbn0kg24q86k7vn",
       "type": "post",
@@ -2339,11 +2235,7 @@
       "id": "vfb16zvqx9d6eq8",
       "locale": "pt-BR",
       "slug": "encontrando-o-maior-divisor-comum-em-type-script",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "mpie23nzxyffqro",
-        "qt21slh77am05fk"
-      ],
+      "tags": ["flr0q50cdxdevwf", "mpie23nzxyffqro", "qt21slh77am05fk"],
       "title": "Encontrando o maior divisor comum em TypeScript",
       "translates": "5d4agn9wp8tkd45",
       "type": "post",
@@ -2397,11 +2289,7 @@
       "id": "q56goy3mqfdb3hu",
       "locale": "pt-BR",
       "slug": "introducao-a-algoritmos",
-      "tags": [
-        "h1v3dvj2nl4wfkv",
-        "dajzoxp5t6w18bv",
-        "61uw7fxpx9mk1ub"
-      ],
+      "tags": ["h1v3dvj2nl4wfkv", "dajzoxp5t6w18bv", "61uw7fxpx9mk1ub"],
       "title": "Introdução à algoritmos",
       "translates": "fk4euqpea154kb9",
       "type": "post",
@@ -2455,11 +2343,7 @@
       "id": "fk4euqpea154kb9",
       "locale": "en-US",
       "slug": "introduction-to-algorithms",
-      "tags": [
-        "15crrteqlw2m1du",
-        "6w6flydg0892skm",
-        "0zpy7tyiew1ifq7"
-      ],
+      "tags": ["15crrteqlw2m1du", "6w6flydg0892skm", "0zpy7tyiew1ifq7"],
       "title": "Introduction to algorithms",
       "translates": "q56goy3mqfdb3hu",
       "type": "post",
@@ -2513,11 +2397,7 @@
       "id": "y9hhvn3ra53p0qj",
       "locale": "pt-BR",
       "slug": "dominando-o-algoritmo-de-ordenacao-por-insercao-um-guia-detalhado",
-      "tags": [
-        "dajzoxp5t6w18bv",
-        "61uw7fxpx9mk1ub",
-        "cw2qlp43ya5e5gx"
-      ],
+      "tags": ["dajzoxp5t6w18bv", "61uw7fxpx9mk1ub", "cw2qlp43ya5e5gx"],
       "title": "Dominando o algoritmo de ordenação por inserção: um guia detalhado",
       "translates": "0mdfakkgsmugaex",
       "type": "post",
@@ -2571,11 +2451,7 @@
       "id": "0mdfakkgsmugaex",
       "locale": "en-US",
       "slug": "mastering-insertion-sort-a-detailed-guide",
-      "tags": [
-        "0zpy7tyiew1ifq7",
-        "gb0efasjlh4psof",
-        "cw2qlp43ya5e5gx"
-      ],
+      "tags": ["0zpy7tyiew1ifq7", "gb0efasjlh4psof", "cw2qlp43ya5e5gx"],
       "title": "Mastering Insertion Sort: A Detailed Guide",
       "translates": "y9hhvn3ra53p0qj",
       "type": "post",
@@ -2629,11 +2505,7 @@
       "id": "ivk3bq1nejzjip8",
       "locale": "pt-BR",
       "slug": "um-array-com-todos-os-estados-do-brasil-para-voce-reusar-em-suas-aplicacoes",
-      "tags": [
-        "flr0q50cdxdevwf",
-        "k598t18ogzejjqr",
-        "fp8x2dzlnchxlsv"
-      ],
+      "tags": ["flr0q50cdxdevwf", "k598t18ogzejjqr", "fp8x2dzlnchxlsv"],
       "title": "Um array com todos os estados do Brasil, para você reusar em suas aplicações",
       "translates": "",
       "type": "post",
@@ -2679,10 +2551,7 @@
       "id": "iwov85iu4liz8at",
       "locale": "pt-BR",
       "slug": "como-foi-a-minha-experiencia-no-elixir-days-2024",
-      "tags": [
-        "qiq1ikdntweuw2g",
-        "h026uzr3m0suitr"
-      ],
+      "tags": ["qiq1ikdntweuw2g", "h026uzr3m0suitr"],
       "title": "Como foi a minha experiência no Elixir Days 2024",
       "translates": "",
       "type": "post",
@@ -2736,11 +2605,7 @@
       "id": "uexpopcezi7muo0",
       "locale": "pt-BR",
       "slug": "como-ficar-rico-segundo-naval",
-      "tags": [
-        "owcp6pnh5ubyfss",
-        "s171qivftknew2p",
-        "v6assajaxm81u67"
-      ],
+      "tags": ["owcp6pnh5ubyfss", "s171qivftknew2p", "v6assajaxm81u67"],
       "title": "Como ficar rico, segundo Naval",
       "translates": "",
       "type": "post",
@@ -2794,11 +2659,7 @@
       "id": "46trc5wkbpbc97s",
       "locale": "en-US",
       "slug": "should-i-commit-node-modules-directory-to-git",
-      "tags": [
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf",
-        "r9kzz4o66qdciei"
-      ],
+      "tags": ["uswdhycu2qo71dt", "flr0q50cdxdevwf", "r9kzz4o66qdciei"],
       "title": "Should I commit node_modules directory to git?",
       "translates": "bjdnvqai9ykbt6v",
       "type": "post",
@@ -2852,11 +2713,7 @@
       "id": "bjdnvqai9ykbt6v",
       "locale": "pt-BR",
       "slug": "devo-commitar-o-node-modules-no-git",
-      "tags": [
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf",
-        "r9kzz4o66qdciei"
-      ],
+      "tags": ["uswdhycu2qo71dt", "flr0q50cdxdevwf", "r9kzz4o66qdciei"],
       "title": "Devo commitar o node_modules no git?",
       "translates": "46trc5wkbpbc97s",
       "type": "post",
@@ -2910,11 +2767,7 @@
       "id": "8cxztl6gvjs26in",
       "locale": "en-US",
       "slug": "using-typescript-in-node-js-projects",
-      "tags": [
-        "qt21slh77am05fk",
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf"
-      ],
+      "tags": ["qt21slh77am05fk", "uswdhycu2qo71dt", "flr0q50cdxdevwf"],
       "title": "Using TypeScript in Node.js projects",
       "translates": "5xfzc0v2gy17ywy",
       "type": "post",
@@ -2968,11 +2821,7 @@
       "id": "5xfzc0v2gy17ywy",
       "locale": "pt-BR",
       "slug": "usando-typescript-em-projetos-node-js",
-      "tags": [
-        "uswdhycu2qo71dt",
-        "flr0q50cdxdevwf",
-        "qt21slh77am05fk"
-      ],
+      "tags": ["uswdhycu2qo71dt", "flr0q50cdxdevwf", "qt21slh77am05fk"],
       "title": "Usando TypeScript em projetos Node.js",
       "translates": "8cxztl6gvjs26in",
       "type": "post",
@@ -3026,11 +2875,7 @@
       "id": "1maxkvari818nwt",
       "locale": "pt-BR",
       "slug": "corrigindo-a-configuracao-do-teclado-americano-no-ubuntu-24-04",
-      "tags": [
-        "imy84w3um5iw9b9",
-        "mx2257nveo15eg5",
-        "i793k0f9d2xg5td"
-      ],
+      "tags": ["imy84w3um5iw9b9", "mx2257nveo15eg5", "i793k0f9d2xg5td"],
       "title": "Corrigindo a configuração do teclado americano no Ubuntu",
       "translates": "",
       "type": "post",
@@ -3084,11 +2929,7 @@
       "id": "d3govdnqx3prpgq",
       "locale": "pt-BR",
       "slug": "instalando-o-whats-app-no-linux",
-      "tags": [
-        "vt6oml9lvqhjvdx",
-        "mx2257nveo15eg5",
-        "imy84w3um5iw9b9"
-      ],
+      "tags": ["vt6oml9lvqhjvdx", "mx2257nveo15eg5", "imy84w3um5iw9b9"],
       "title": "Instalando o WhatsApp no Linux",
       "translates": "",
       "type": "post",
@@ -3134,10 +2975,7 @@
       "id": "vk08vwbjc8nhmdw",
       "locale": "pt-BR",
       "slug": "instalando-o-tema-dracula-no-gnome-console",
-      "tags": [
-        "mx2257nveo15eg5",
-        "imy84w3um5iw9b9"
-      ],
+      "tags": ["mx2257nveo15eg5", "imy84w3um5iw9b9"],
       "title": "Instalando o tema Dracula no Gnome Console",
       "translates": "",
       "type": "post",
@@ -3183,10 +3021,7 @@
       "id": "ii9colsinjxkx1s",
       "locale": "pt-BR",
       "slug": "aliases-do-git-que-uso-diariamente",
-      "tags": [
-        "mx2257nveo15eg5",
-        "8dh8moyptdsfn26"
-      ],
+      "tags": ["mx2257nveo15eg5", "8dh8moyptdsfn26"],
       "title": "Aliases do Git que uso diariamente",
       "translates": "",
       "type": "post",
@@ -3240,11 +3075,7 @@
       "id": "uybmrtdz9y7iuzk",
       "locale": "pt-BR",
       "slug": "valide-suas-variaveis-de-ambiente-com-zod",
-      "tags": [
-        "zbbsricrnj6lwpa",
-        "bj0h9ubepvsk18t",
-        "jbicyrv38na1apv"
-      ],
+      "tags": ["zbbsricrnj6lwpa", "bj0h9ubepvsk18t", "jbicyrv38na1apv"],
       "title": "Valide suas variáveis de ambiente com Zod",
       "translates": "j58woxctz6b7mpo",
       "type": "post",
@@ -3298,11 +3129,7 @@
       "id": "j58woxctz6b7mpo",
       "locale": "en-US",
       "slug": "validate-your-environment-variables-with-zod",
-      "tags": [
-        "jbicyrv38na1apv",
-        "bj0h9ubepvsk18t",
-        "zbbsricrnj6lwpa"
-      ],
+      "tags": ["jbicyrv38na1apv", "bj0h9ubepvsk18t", "zbbsricrnj6lwpa"],
       "title": "Validate your environment variables with Zod",
       "translates": "uybmrtdz9y7iuzk",
       "type": "post",

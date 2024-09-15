@@ -10,8 +10,12 @@ export class PostEntity {
   tags: string[]
   translates?: ID
 
-
-  constructor(data: Omit<PostEntity, 'created' | 'updated'> & { created?: Date, updated?: Date }) {
+  constructor(
+    data: Omit<PostEntity, 'created' | 'updated'> & {
+      created?: Date
+      updated?: Date
+    },
+  ) {
     this.id = data.id
     this.title = data.title
     this.locale = data.locale
