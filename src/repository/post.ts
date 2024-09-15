@@ -82,7 +82,7 @@ export class PostRepository {
     const totalPosts = list.length
     const totalPages = Math.ceil(totalPosts / limit)
     const start = page > 1 ? (page - 1) * limit : 0
-    const files = list.slice(start, start + limit)
+    const files = list.reverse().slice(start, start + limit)
 
     const posts = await Promise.all(
       files.map(async (file) => {
