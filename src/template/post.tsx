@@ -16,6 +16,8 @@ export function Post({
   slug,
   // translates,
 }: PostProps) {
+  const link = locale === 'en-US' ? `/${locale}/${slug}` : `/${slug}`
+
   return (
     <article id={`post-${id}`} class={variant}>
       <header>
@@ -23,7 +25,9 @@ export function Post({
           <h1>{title}</h1>
         ) : (
           <h2>
-            <a href={`/${slug}`} rel="bookmark">{title}</a>
+            <a href={link} rel="bookmark">
+              {title}
+            </a>
           </h2>
         )}
         {/*

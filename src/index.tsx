@@ -19,7 +19,7 @@ const app = new Hono<ServiceEnv>()
 app.use(renderer)
 app.use(service)
 
-app.get('*', async (c, next) => {
+app.on('GET', ['/', '/en-US', '/en-US/'], async (c) => {
   if (
     c.var.selectedLocale !== DEFAULT_LANGUAGE &&
     !c.req.path.includes(c.var.selectedLocale)
@@ -27,10 +27,6 @@ app.get('*', async (c, next) => {
     return c.redirect(`/${c.var.selectedLocale}${c.req.path}`)
   }
 
-  await next()
-})
-
-app.on('GET', ['/', '/en-US', '/en-US/'], async (c) => {
   const posts = await c.var.service.post.paginate({
     locale: c.var.selectedLocale,
   })
