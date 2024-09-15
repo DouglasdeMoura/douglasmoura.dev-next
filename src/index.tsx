@@ -3,7 +3,11 @@ import { HTTPException } from 'hono/http-exception'
 import { validator } from 'hono/validator'
 import { z } from 'zod'
 
-import { type ServiceEnv, service } from './middleware/service.js'
+import {
+  DEFAULT_LANGUAGE,
+  type ServiceEnv,
+  service,
+} from './middleware/service.js'
 import { renderer } from './renderer.js'
 import { Error404 } from './template/404.js'
 import { Post } from './template/post.js'
@@ -15,11 +19,22 @@ const app = new Hono<ServiceEnv>()
 app.use(renderer)
 app.use(service)
 
-app.get('/', async (c) => {
-  const locale = c.var.service.getPreferredLanguage(
-    c.req.header('Accept-Language'),
-  )
-  const posts = await c.var.service.post.paginate({ locale })
+app.get('*', async (c, next) => {
+  if (
+    c.var.selectedLocale !== DEFAULT_LANGUAGE &&
+    !c.req.path.includes(c.var.selectedLocale)
+  ) {
+    return c.redirect(`/${c.var.selectedLocale}${c.req.path}`)
+  }
+
+  await next()
+})
+
+app.on('GET', ['/', '/en-US', '/en-US/'], async (c) => {
+  const posts = await c.var.service.post.paginate({
+    locale: c.var.selectedLocale,
+  })
+
   return c.render(
     <Index
       posts={posts.items}
@@ -29,8 +44,9 @@ app.get('/', async (c) => {
   )
 })
 
-app.get(
-  '/page/:page',
+app.on(
+  'GET',
+  ['/page/:page', '/en-US/page/:page', '/en-US/page/:page/'],
   validator('param', (value) => {
     const schema = z.object({ page: z.number({ coerce: true }) })
     const parsed = schema.safeParse(value)
@@ -44,11 +60,11 @@ app.get(
     return parsed.data
   }),
   async (c) => {
-    const locale = c.var.service.getPreferredLanguage(
-      c.req.header('Accept-Language'),
-    )
     const page = Number.parseInt(c.req.param('page'))
-    const posts = await c.var.service.post.paginate({ page, locale })
+    const posts = await c.var.service.post.paginate({
+      page,
+      locale: c.var.selectedLocale,
+    })
 
     if (!posts.items.length) {
       throw new HTTPException(404, {
@@ -66,7 +82,7 @@ app.get(
   },
 )
 
-app.get('/:id', async (c) => {
+app.on('GET', ['/:id', '/en-US/:id', '/en-US/:id/'], async (c) => {
   const post = await c.var.service.post.getBySlug(c.req.param('id'))
 
   if (!post) {
@@ -79,7 +95,7 @@ app.get('/:id', async (c) => {
 })
 
 app.onError((err, c) => {
-  console.log(err)
+  // console.log(err)
   if (err instanceof HTTPException) {
     if (err.status === 404) {
       return c.render(<Error404 />)
