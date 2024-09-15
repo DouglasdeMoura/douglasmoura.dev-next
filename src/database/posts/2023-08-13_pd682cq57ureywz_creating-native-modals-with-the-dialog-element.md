@@ -1,7 +1,7 @@
 ---
 id: pd682cq57ureywz
 locale: en-US
-title: Creating native modals with the dialog element
+title: 'Creating native modals with the dialog element'
 created: 2023-08-13 19:29:49.318Z
 updated: 2023-08-15 00:22:38.749Z
 tags: html, javascript, tutorial

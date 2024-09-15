@@ -1,7 +1,7 @@
 ---
 id: iwov85iu4liz8at
 locale: pt-BR
-title: Como foi a minha experiência no Elixir Days 2024
+title: 'Como foi a minha experiência no Elixir Days 2024'
 created: 2024-05-31 19:58:47.206Z
 updated: 2024-05-31 19:58:47.206Z
 tags: Elixir, Palestras

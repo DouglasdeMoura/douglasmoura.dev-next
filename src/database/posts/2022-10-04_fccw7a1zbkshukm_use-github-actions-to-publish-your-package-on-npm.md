@@ -1,7 +1,7 @@
 ---
 id: fccw7a1zbkshukm
 locale: en-US
-title: Use GitHub actions to publish your package on NPM
+title: 'Use GitHub actions to publish your package on NPM'
 created: 2022-10-04 15:00:00.000Z
 updated: 2022-12-29 14:51:36.616Z
 tags: javascript, typescript, npm

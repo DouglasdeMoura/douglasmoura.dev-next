@@ -1,7 +1,7 @@
 ---
 id: 066kuym52jk3nbp
 locale: pt-BR
-title: Criando modais nativos com o elemento dialog
+title: 'Criando modais nativos com o elemento dialog'
 created: 2023-08-13 01:49:01.615Z
 updated: 2023-08-15 00:22:04.855Z
 tags: tutorial, javascript, html

@@ -1,7 +1,7 @@
 ---
 id: atlbwc7th1nnlm9
 locale: pt-BR
-title: Aprenda como os programas são executados no computador
+title: 'Aprenda como os programas são executados no computador'
 created: 2023-07-29 23:57:35.952Z
 updated: 2023-07-30 00:05:18.961Z
 tags: Computadores, Dicas

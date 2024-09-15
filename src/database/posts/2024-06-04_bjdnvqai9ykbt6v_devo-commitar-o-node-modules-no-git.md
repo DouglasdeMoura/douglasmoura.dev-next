@@ -1,7 +1,7 @@
 ---
 id: bjdnvqai9ykbt6v
 locale: pt-BR
-title: Devo commitar o node_modules no git?
+title: 'Devo commitar o node_modules no git?'
 created: 2024-06-04 17:49:35.568Z
 updated: 2024-06-04 17:49:35.568Z
 tags: Node.js, javascript, npm

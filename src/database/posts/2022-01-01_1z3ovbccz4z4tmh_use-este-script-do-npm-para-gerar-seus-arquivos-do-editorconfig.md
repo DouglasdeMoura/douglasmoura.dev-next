@@ -1,7 +1,7 @@
 ---
 id: 1z3ovbccz4z4tmh
 locale: pt-BR
-title: Use este script do NPM para gerar seus arquivos do EditorConfig
+title: 'Use este script do NPM para gerar seus arquivos do EditorConfig'
 created: 2022-01-01 15:00:00.000Z
 updated: 2022-12-29 14:52:01.854Z
 tags: javascript, html

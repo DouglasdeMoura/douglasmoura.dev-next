@@ -1,7 +1,7 @@
 ---
 id: 5xfzc0v2gy17ywy
 locale: pt-BR
-title: Usando TypeScript em projetos Node.js
+title: 'Usando TypeScript em projetos Node.js'
 created: 2024-07-08 09:51:28.826Z
 updated: 2024-07-08 09:51:28.826Z
 tags: Node.js, javascript, typescript

@@ -1,7 +1,7 @@
 ---
 id: ivk3bq1nejzjip8
 locale: pt-BR
-title: Um array com todos os estados do Brasil, para você reusar em suas aplicações
+title: 'Um array com todos os estados do Brasil, para você reusar em suas aplicações'
 created: 2024-05-31 15:26:20.916Z
 updated: 2024-05-31 15:41:29.153Z
 tags: javascript, html, Snippet

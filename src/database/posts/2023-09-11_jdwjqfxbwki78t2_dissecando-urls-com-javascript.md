@@ -1,7 +1,7 @@
 ---
 id: jdwjqfxbwki78t2
 locale: pt-BR
-title: Dissecando URLs com JavaScript
+title: 'Dissecando URLs com JavaScript'
 created: 2023-09-11 12:48:41.199Z
 updated: 2023-09-11 12:52:25.736Z
 tags: javascript, html, Node.js

@@ -77,18 +77,33 @@ export class PostRepository {
     return id
   }
 
-  async paginate(page = 1, limit = 10) {
-    const list = await this.postsFileList()
+  async paginate({
+    page = 1,
+    limit = 10,
+    locale,
+  }: { page?: number; limit?: number; locale: PostEntity['locale'] }) {
+    const list = (await this.postsFileList()).reverse()
     const totalPosts = list.length
     const totalPages = Math.ceil(totalPosts / limit)
     const start = page > 1 ? (page - 1) * limit : 0
-    const files = list.reverse().slice(start, start + limit)
 
-    const posts = await Promise.all(
-      files.map(async (file) => {
-        const { data, content } = matter.read(file)
+    const posts = []
 
-        return new PostEntity({
+    for (let i = start; i < start + limit; i++) {
+      const file = list[i]
+
+      if (!file) {
+        break
+      }
+
+      const { data, content } = matter.read(file)
+
+      if (data.locale !== locale) {
+        continue
+      }
+
+      posts.push(
+        new PostEntity({
           id: data.id,
           title: data.title,
           locale: data.locale,
@@ -97,9 +112,9 @@ export class PostRepository {
           content: content,
           tags: data.tags.split(', '),
           translates: data.translates,
-        })
-      }),
-    )
+        }),
+      )
+    }
 
     return {
       currentPage: page,

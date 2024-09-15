@@ -10,7 +10,6 @@ const writeFile = vi.fn()
 vi.spyOn(fs, 'writeFile').mockImplementation(writeFile)
 vi.spyOn(services, 'generatePostId').mockReturnValue('mocked_value')
 
-
 const post = new PostEntity({
   id: '7ba8zyw9of4afcw',
   title: 'Olá, mundo',
@@ -24,13 +23,16 @@ describe('Post Repository', () => {
   it('should create a new post', async () => {
     const id = await PostRepository.create(post)
 
-    expect(writeFile).toHaveBeenCalledWith('./src/database/posts/mocked_value.md', post.toString())
+    expect(writeFile).toHaveBeenCalledWith(
+      './src/database/posts/mocked_value.md',
+      post.toString(),
+    )
     expect(id).toBe('mocked_value')
   })
 
   it('should pick a post by id', async () => {
     const id = '7ba8zyw9of4afcw'
-    const post = await PostRepository.getById(id) as PostEntity
+    const post = (await PostRepository.getById(id)) as PostEntity
 
     expect(post).toBeInstanceOf(PostEntity)
     expect(post.id).toBe(id)
@@ -43,7 +45,7 @@ describe('Post Repository', () => {
 
   it('should pick a post by slug', async () => {
     const slug = 'ola-mundo'
-    const post = await PostRepository.getBySlug(slug) as PostEntity
+    const post = (await PostRepository.getBySlug(slug)) as PostEntity
 
     expect(post).toBeInstanceOf(PostEntity)
     expect(post.id).toBe('7ba8zyw9of4afcw')
@@ -57,7 +59,10 @@ describe('Post Repository', () => {
   it('should update a post', async () => {
     const id = await PostRepository.update(post)
 
-    expect(writeFile).toHaveBeenCalledWith('./src/database/posts/mocked_value.md', post.toString())
+    expect(writeFile).toHaveBeenCalledWith(
+      './src/database/posts/mocked_value.md',
+      post.toString(),
+    )
     expect(id).toBe('mocked_value')
   })
 
@@ -73,7 +78,7 @@ describe('Post Repository', () => {
   })
 
   it('should return a list of posts', async () => {
-    const posts = await PostRepository.paginate(0, 1)
+    const posts = await PostRepository.paginate({ locale: 'en-US' })
 
     expect(posts.items[0]).toBeInstanceOf(PostEntity)
   })

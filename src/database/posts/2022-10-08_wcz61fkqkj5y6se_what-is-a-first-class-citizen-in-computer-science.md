@@ -1,7 +1,7 @@
 ---
 id: wcz61fkqkj5y6se
 locale: en-US
-title: What is a first-class citizen in computer science?
+title: 'What is a first-class citizen in computer science?'
 created: 2022-10-08 15:00:00.000Z
 updated: 2022-12-29 14:51:27.174Z
 tags: javascript, computerscience, programming, beginners

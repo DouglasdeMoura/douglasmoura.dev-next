@@ -1,7 +1,7 @@
 ---
 id: j58woxctz6b7mpo
 locale: en-US
-title: Validate your environment variables with Zod
+title: 'Validate your environment variables with Zod'
 created: 2024-08-15 14:14:26.654Z
 updated: 2024-08-15 14:17:19.617Z
 tags: Zod, TypeScript, Tips

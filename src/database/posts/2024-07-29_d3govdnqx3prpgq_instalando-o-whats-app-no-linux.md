@@ -1,7 +1,7 @@
 ---
 id: d3govdnqx3prpgq
 locale: pt-BR
-title: Instalando o WhatsApp no Linux
+title: 'Instalando o WhatsApp no Linux'
 created: 2024-07-29 17:18:23.361Z
 updated: 2024-07-29 17:34:53.815Z
 tags: WhatsApp, Linux, Ubuntu

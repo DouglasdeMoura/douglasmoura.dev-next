@@ -1,7 +1,7 @@
 ---
 id: ii9colsinjxkx1s
 locale: pt-BR
-title: Aliases do Git que uso diariamente
+title: 'Aliases do Git que uso diariamente'
 created: 2024-07-31 17:24:35.964Z
 updated: 2024-07-31 17:38:59.555Z
 tags: Linux, Terminal

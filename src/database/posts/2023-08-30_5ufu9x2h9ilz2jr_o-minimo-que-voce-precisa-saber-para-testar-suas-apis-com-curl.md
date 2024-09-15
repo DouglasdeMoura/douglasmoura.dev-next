@@ -1,7 +1,7 @@
 ---
 id: 5ufu9x2h9ilz2jr
 locale: pt-BR
-title: O mínimo que você precisa saber para testar suas APIs com CURL
+title: 'O mínimo que você precisa saber para testar suas APIs com CURL'
 created: 2023-08-30 17:28:52.275Z
 updated: 2024-06-02 00:24:20.126Z
 tags: curl, API, HTTP

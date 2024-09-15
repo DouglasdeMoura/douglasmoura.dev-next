@@ -1,7 +1,7 @@
 ---
 id: r244td2x5346p6e
 locale: pt-BR
-title: Configurando variáveis de ambiente em aplicações Node.js
+title: 'Configurando variáveis de ambiente em aplicações Node.js'
 created: 2023-09-05 21:01:49.238Z
 updated: 2023-09-05 21:06:00.400Z
 tags: Node.js, javascript

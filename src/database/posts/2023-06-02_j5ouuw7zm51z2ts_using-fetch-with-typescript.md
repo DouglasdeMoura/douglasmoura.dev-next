@@ -1,7 +1,7 @@
 ---
 id: j5ouuw7zm51z2ts
 locale: en-US
-title: Using fetch with TypeScript
+title: 'Using fetch with TypeScript'
 created: 2023-06-02 12:19:46.717Z
 updated: 2023-06-04 19:57:40.482Z
 tags: typescript, javascript

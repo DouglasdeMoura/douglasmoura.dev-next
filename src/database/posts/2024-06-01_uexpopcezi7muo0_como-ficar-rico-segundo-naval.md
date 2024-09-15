@@ -1,7 +1,7 @@
 ---
 id: uexpopcezi7muo0
 locale: pt-BR
-title: Como ficar rico, segundo Naval
+title: 'Como ficar rico, segundo Naval'
 created: 2024-06-01 23:45:47.857Z
 updated: 2024-06-01 23:50:04.710Z
 tags: Conselhos, Riqueza, Sabedoria

@@ -1,7 +1,7 @@
 ---
 id: hf1qmggdzmgfgiz
 locale: pt-BR
-title: Slides da palestra "Design System com Tailwind CSS" da Conferência CSS Brasil 2023
+title: 'Slides da palestra "Design System com Tailwind CSS" da Conferência CSS Brasil 2023'
 created: 2023-01-22 19:02:10.980Z
 updated: 2023-01-22 19:09:17.314Z
 tags: talks

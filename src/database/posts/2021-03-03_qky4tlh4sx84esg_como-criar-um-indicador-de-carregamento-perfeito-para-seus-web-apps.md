@@ -1,7 +1,7 @@
 ---
 id: qky4tlh4sx84esg
 locale: pt-BR
-title: Como criar um indicador de carregamento perfeito para seus web apps
+title: 'Como criar um indicador de carregamento perfeito para seus web apps'
 created: 2021-03-03 15:00:00.000Z
 updated: 2023-08-12 13:45:55.590Z
 tags: html, javascript

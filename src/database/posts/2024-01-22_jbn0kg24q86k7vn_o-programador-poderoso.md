@@ -1,7 +1,7 @@
 ---
 id: jbn0kg24q86k7vn
 locale: pt-BR
-title: O programador poderoso
+title: 'O programador poderoso'
 created: 2024-01-22 20:18:03.828Z
 updated: 2024-01-23 13:26:49.676Z
 tags: Engenharia de Software, Padrões de Projeto, Carreira

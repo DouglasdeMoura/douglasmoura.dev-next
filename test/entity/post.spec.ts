@@ -18,6 +18,7 @@ describe('Post Entity', () => {
       id: '7ba8zyw9of4afcw',
       title: 'Olá, mundo',
       locale: 'pt-BR',
+      slug: 'ola-mundo',
       created: new Date('2021-01-01 15:00:00.000Z'),
       updated: new Date('2021-01-01 15:00:00.000Z'),
       content: 'Hello, World!',

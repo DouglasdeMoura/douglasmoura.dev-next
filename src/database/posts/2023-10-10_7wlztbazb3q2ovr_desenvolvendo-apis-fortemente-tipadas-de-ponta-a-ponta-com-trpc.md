@@ -1,7 +1,7 @@
 ---
 id: 7wlztbazb3q2ovr
 locale: pt-BR
-title: Desenvolvendo APIs fortemente tipadas de ponta a ponta com tRPC
+title: 'Desenvolvendo APIs fortemente tipadas de ponta a ponta com tRPC'
 created: 2023-10-10 17:44:09.835Z
 updated: 2023-10-10 17:46:27.097Z
 tags: typescript, API, rpc

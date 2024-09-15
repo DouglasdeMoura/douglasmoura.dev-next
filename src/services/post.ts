@@ -24,8 +24,8 @@ export class PostService {
     return this.repository.update(post)
   }
 
-  async paginate(page: number, limit: number) {
-    return this.repository.paginate(page, limit)
+  async paginate(args: { page?: number; limit?: number; locale: PostEntity['locale'] }) {
+    return this.repository.paginate(args)
   }
 }
 

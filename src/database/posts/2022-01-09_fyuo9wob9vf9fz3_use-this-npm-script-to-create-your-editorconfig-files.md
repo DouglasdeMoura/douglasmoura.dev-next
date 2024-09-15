@@ -1,7 +1,7 @@
 ---
 id: fyuo9wob9vf9fz3
 locale: en-US
-title: Use this NPM script to create your EditorConfig files 
+title: 'Use this NPM script to create your EditorConfig files '
 created: 2022-01-09 15:00:00.000Z
 updated: 2023-01-04 15:16:37.227Z
 tags: javascript, editorconfig, npm, npx

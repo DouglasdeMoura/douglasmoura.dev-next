@@ -1,7 +1,7 @@
 ---
 id: vfb16zvqx9d6eq8
 locale: pt-BR
-title: Encontrando o maior divisor comum em TypeScript
+title: 'Encontrando o maior divisor comum em TypeScript'
 created: 2024-01-25 13:47:59.773Z
 updated: 2024-01-25 13:56:47.886Z
 tags: javascript, mathematic, typescript

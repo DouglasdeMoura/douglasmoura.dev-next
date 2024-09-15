@@ -1,7 +1,7 @@
 ---
 id: 5d4agn9wp8tkd45
 locale: en-US
-title: Finding the greatest common divisor in TypeScript
+title: 'Finding the greatest common divisor in TypeScript'
 created: 2024-01-12 16:31:36.266Z
 updated: 2024-01-25 13:55:08.252Z
 tags: typescript, mathematic, javascript

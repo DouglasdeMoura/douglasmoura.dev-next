@@ -1,7 +1,7 @@
 ---
 id: 1maxkvari818nwt
 locale: pt-BR
-title: Corrigindo a configuração do teclado americano no Ubuntu
+title: 'Corrigindo a configuração do teclado americano no Ubuntu'
 created: 2024-07-29 13:26:35.627Z
 updated: 2024-08-07 14:27:45.659Z
 tags: Ubuntu, Linux, Dicas

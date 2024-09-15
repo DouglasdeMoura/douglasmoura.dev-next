@@ -1,7 +1,7 @@
 ---
 id: i9fkingsi8pcbqk
 locale: en-US
-title:  Introduction to GraphQL
+title: ' Introduction to GraphQL'
 created: 2022-11-17 15:00:00.000Z
 updated: 2022-12-29 14:51:23.352Z
 tags: graphql, webdev

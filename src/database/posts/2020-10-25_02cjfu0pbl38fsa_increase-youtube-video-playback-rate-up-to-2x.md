@@ -1,7 +1,7 @@
 ---
 id: 02cjfu0pbl38fsa
 locale: en-US
-title: Increase YouTube video playback rate up to 2x
+title: 'Increase YouTube video playback rate up to 2x'
 created: 2020-10-25 00:00:00.000Z
 updated: 2022-12-29 14:52:21.704Z
 tags: javascript, html, video, youtube

@@ -1,7 +1,7 @@
 ---
 id: l63ql849ju0fg4l
 locale: en-US
-title: How to push an empty commit on Git?
+title: 'How to push an empty commit on Git?'
 created: 2023-01-13 21:03:48.079Z
 updated: 2023-01-13 21:03:48.079Z
 tags: Git

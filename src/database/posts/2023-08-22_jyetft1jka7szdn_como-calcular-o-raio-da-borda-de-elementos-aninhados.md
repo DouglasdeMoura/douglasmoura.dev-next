@@ -1,7 +1,7 @@
 ---
 id: jyetft1jka7szdn
 locale: pt-BR
-title: Como calcular o raio da borda (border-radius) de elementos aninhados
+title: 'Como calcular o raio da borda (border-radius) de elementos aninhados'
 created: 2023-08-22 20:05:26.070Z
 updated: 2023-08-30 18:47:29.128Z
 tags: CSS, HTML, Dicas

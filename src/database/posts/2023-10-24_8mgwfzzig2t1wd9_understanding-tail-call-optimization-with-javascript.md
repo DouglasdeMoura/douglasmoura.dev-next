@@ -1,7 +1,7 @@
 ---
 id: 8mgwfzzig2t1wd9
 locale: en-US
-title: Understanding Tail Call Optimization With JavaScript
+title: 'Understanding Tail Call Optimization With JavaScript'
 created: 2023-10-24 15:13:38.216Z
 updated: 2023-10-24 15:27:40.960Z
 tags: algorithms, javascript, mathematic, Node.js

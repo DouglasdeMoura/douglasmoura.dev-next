@@ -1,7 +1,7 @@
 ---
 id: 58wjrq3hiqgs1kq
 locale: pt-BR
-title: Aprenda sobre bancos de dados (e como escolher o melhor para sua aplicação) com este guia
+title: 'Aprenda sobre bancos de dados (e como escolher o melhor para sua aplicação) com este guia'
 created: 2023-08-27 19:47:23.536Z
 updated: 2023-08-27 19:47:23.536Z
 tags: Banco de dados, Serverless, ORM, Prisma

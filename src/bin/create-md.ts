@@ -60,7 +60,7 @@ const createMarkdown = (post: Post) => {
   const markdown = `---
 id: ${id}
 locale: ${locale}
-title: ${title}
+title: '${title}'
 created: ${created}
 updated: ${updated}
 tags: ${tagString}
@@ -76,7 +76,7 @@ const main = async () => {
   for (const post of response.items) {
     const markdown = createMarkdown(post)
     const date = new Date(post.created).toISOString().split('T')[0]
-    fs.writeFileSync(`./src/posts/${date}_${post.id}_${post.slug}.md`, markdown)
+    fs.writeFileSync(`./src/database/posts/${date}_${post.id}_${post.slug}.md`, markdown)
   }
 }
 

@@ -1,7 +1,7 @@
 ---
 id: uybmrtdz9y7iuzk
 locale: pt-BR
-title: Valide suas variáveis de ambiente com Zod
+title: 'Valide suas variáveis de ambiente com Zod'
 created: 2024-08-15 13:51:14.579Z
 updated: 2024-08-15 14:16:39.812Z
 tags: Tips, TypeScript, Zod

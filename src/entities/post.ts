@@ -1,8 +1,11 @@
+import slugify from '@sindresorhus/slugify'
+
 type ID = string
 
 export class PostEntity {
   id: ID
   title: string
+  slug: string
   locale: 'en-US' | 'pt-BR'
   created: Date
   updated: Date
@@ -11,13 +14,14 @@ export class PostEntity {
   translates?: ID
 
   constructor(
-    data: Omit<PostEntity, 'created' | 'updated'> & {
+    data: Omit<PostEntity, 'created' | 'updated' | 'slug'> & {
       created?: Date
       updated?: Date
     },
   ) {
     this.id = data.id
     this.title = data.title
+    this.slug = slugify(data.title.toLowerCase())
     this.locale = data.locale
     this.created = data?.created ?? new Date()
     this.updated = data?.updated ?? data?.created ?? new Date()

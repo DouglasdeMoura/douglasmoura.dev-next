@@ -1,7 +1,7 @@
 ---
 id: x09m6ctgj8r7ebz
 locale: en-US
-title: Create beautiful placeholders for your images 
+title: 'Create beautiful placeholders for your images '
 created: 2022-09-29 15:00:00.000Z
 updated: 2023-08-12 13:33:26.541Z
 tags: javascript, typescript, react, tutorial

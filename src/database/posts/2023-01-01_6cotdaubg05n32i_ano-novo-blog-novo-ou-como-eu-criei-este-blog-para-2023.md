@@ -1,7 +1,7 @@
 ---
 id: 6cotdaubg05n32i
 locale: pt-BR
-title: Ano novo, blog novo (ou como eu criei este blog para 2023)
+title: 'Ano novo, blog novo (ou como eu criei este blog para 2023)'
 created: 2023-01-01 16:34:44.490Z
 updated: 2023-08-12 13:34:51.667Z
 tags: webdev, programming, designsystem

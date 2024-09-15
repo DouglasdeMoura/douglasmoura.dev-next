@@ -1,7 +1,7 @@
 ---
 id: wxuu4bshveoe7ld
 locale: en-US
-title: The Powerful Programmer
+title: 'The Powerful Programmer'
 created: 2024-01-23 13:26:41.726Z
 updated: 2024-01-25 17:03:59.369Z
 tags: Software Engineering, Patterns, Carreer

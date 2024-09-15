@@ -1,7 +1,7 @@
 ---
 id: 7p8vdcau7gg894b
 locale: en-US
-title:  How to extend HTML elements with React
+title: ' How to extend HTML elements with React'
 created: 2022-09-26 00:00:00.000Z
 updated: 2022-12-29 14:51:44.872Z
 tags: javascript, typescript, react

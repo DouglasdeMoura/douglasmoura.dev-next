@@ -1,7 +1,7 @@
 ---
 id: q56goy3mqfdb3hu
 locale: pt-BR
-title: Introdução à algoritmos
+title: 'Introdução à algoritmos'
 created: 2024-01-25 16:53:40.103Z
 updated: 2024-01-25 17:00:20.007Z
 tags: Iniciantes, Algoritmos, Ciência da Computação

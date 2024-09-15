@@ -1,7 +1,7 @@
 ---
 id: vk08vwbjc8nhmdw
 locale: pt-BR
-title: Instalando o tema Dracula no Gnome Console
+title: 'Instalando o tema Dracula no Gnome Console'
 created: 2024-07-29 17:55:16.247Z
 updated: 2024-07-29 17:55:16.247Z
 tags: Linux, Ubuntu

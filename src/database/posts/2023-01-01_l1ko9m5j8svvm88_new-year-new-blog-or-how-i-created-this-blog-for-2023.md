@@ -1,7 +1,7 @@
 ---
 id: l1ko9m5j8svvm88
 locale: en-US
-title: New year, new blog (or how I created this blog for 2023)
+title: 'New year, new blog (or how I created this blog for 2023)'
 created: 2023-01-01 18:29:53.355Z
 updated: 2023-08-12 13:31:07.448Z
 tags: designsystem, webdev, programming

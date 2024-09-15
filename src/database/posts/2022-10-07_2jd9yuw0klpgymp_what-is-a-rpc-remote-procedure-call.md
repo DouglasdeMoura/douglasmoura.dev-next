@@ -1,7 +1,7 @@
 ---
 id: 2jd9yuw0klpgymp
 locale: en-US
-title: What is a RPC (Remote Procedure Call)?
+title: 'What is a RPC (Remote Procedure Call)?'
 created: 2022-10-07 15:00:00.000Z
 updated: 2022-12-29 14:51:32.038Z
 tags: programming, computerscience, rpc, beginners

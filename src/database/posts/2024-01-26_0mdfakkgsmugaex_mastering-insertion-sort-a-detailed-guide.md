@@ -1,7 +1,7 @@
 ---
 id: 0mdfakkgsmugaex
 locale: en-US
-title: Mastering Insertion Sort: A Detailed Guide
+title: 'Mastering Insertion Sort: A Detailed Guide'
 created: 2024-01-26 23:06:53.913Z
 updated: 2024-01-26 23:06:53.913Z
 tags: algorithms, computerscience, tutorial

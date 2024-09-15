@@ -1,7 +1,7 @@
 ---
 id: zj7xcfn2r753ld7
 locale: pt-BR
-title: Gerando hashes MD5 no Node.js
+title: 'Gerando hashes MD5 no Node.js'
 created: 2024-01-22 20:36:58.299Z
 updated: 2024-01-23 13:20:20.671Z
 tags: javascript, Node.js

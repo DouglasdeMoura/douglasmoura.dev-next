@@ -1,7 +1,7 @@
 ---
 id: 91sox12o3ozzl5n
 locale: en-US
-title: Rendering JSX on the Server with Fastify
+title: 'Rendering JSX on the Server with Fastify'
 created: 2024-01-25 00:35:37.056Z
 updated: 2024-01-25 00:42:06.600Z
 tags: Fastify, Tips, javascript, Node.js

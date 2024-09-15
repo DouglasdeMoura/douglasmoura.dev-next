@@ -1,7 +1,7 @@
 ---
 id: rc3oq9fakzdn3ad
 locale: pt-BR
-title: Entendendo o que é Tail Call Optimization com JavaScript
+title: 'Entendendo o que é Tail Call Optimization com JavaScript'
 created: 2023-09-03 02:40:27.535Z
 updated: 2023-10-24 15:13:47.577Z
 tags: javascript, algorithms, mathematic, Node.js

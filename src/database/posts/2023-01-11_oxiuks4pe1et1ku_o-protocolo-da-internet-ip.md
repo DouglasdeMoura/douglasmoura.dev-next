@@ -1,7 +1,7 @@
 ---
 id: oxiuks4pe1et1ku
 locale: pt-BR
-title: O protocolo da internet (IP)
+title: 'O protocolo da internet (IP)'
 created: 2023-01-11 13:20:20.751Z
 updated: 2023-08-12 13:15:55.254Z
 tags: Iniciantes, Internet

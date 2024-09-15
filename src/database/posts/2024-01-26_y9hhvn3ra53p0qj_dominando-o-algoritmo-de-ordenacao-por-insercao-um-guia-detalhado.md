@@ -1,7 +1,7 @@
 ---
 id: y9hhvn3ra53p0qj
 locale: pt-BR
-title: Dominando o algoritmo de ordenação por inserção: um guia detalhado
+title: 'Dominando o algoritmo de ordenação por inserção: um guia detalhado'
 created: 2024-01-26 23:00:25.261Z
 updated: 2024-01-26 23:07:02.602Z
 tags: Algoritmos, Ciência da Computação, tutorial

@@ -1,7 +1,7 @@
 ---
 id: l2hgc45s729in42
 locale: pt-BR
-title: Múltiplas formas de somar os valores de um array de objetos, em TypeScript
+title: 'Múltiplas formas de somar os valores de um array de objetos, em TypeScript'
 created: 2024-01-17 23:28:26.679Z
 updated: 2024-01-23 13:49:43.604Z
 tags: tutorial, typescript, algorithms

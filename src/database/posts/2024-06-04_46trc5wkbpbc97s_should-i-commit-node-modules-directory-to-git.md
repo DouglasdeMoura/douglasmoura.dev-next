@@ -1,7 +1,7 @@
 ---
 id: 46trc5wkbpbc97s
 locale: en-US
-title: Should I commit node_modules directory to git?
+title: 'Should I commit node_modules directory to git?'
 created: 2024-06-04 17:45:35.356Z
 updated: 2024-06-04 17:49:44.038Z
 tags: Node.js, javascript, npm

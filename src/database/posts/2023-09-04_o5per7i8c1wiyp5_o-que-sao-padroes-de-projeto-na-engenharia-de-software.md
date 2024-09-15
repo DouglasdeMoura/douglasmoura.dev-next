@@ -1,7 +1,7 @@
 ---
 id: o5per7i8c1wiyp5
 locale: pt-BR
-title: O que são padrões de projeto na engenharia de software?
+title: 'O que são padrões de projeto na engenharia de software?'
 created: 2023-09-04 20:00:07.730Z
 updated: 2023-09-11 19:50:55.358Z
 tags: Engenharia de Software, Padrões de Projeto

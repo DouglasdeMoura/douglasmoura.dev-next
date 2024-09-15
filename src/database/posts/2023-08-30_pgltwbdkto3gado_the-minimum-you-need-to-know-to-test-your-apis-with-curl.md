@@ -1,7 +1,7 @@
 ---
 id: pgltwbdkto3gado
 locale: en-US
-title: The minimum you need to know to test your APIs with CURL
+title: 'The minimum you need to know to test your APIs with CURL'
 created: 2023-08-30 18:41:29.529Z
 updated: 2024-06-02 00:25:38.664Z
 tags: curl, API, HTTP

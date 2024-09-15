@@ -1,7 +1,7 @@
 ---
 id: e62l4z2ckms6roz
 locale: pt-BR
-title: Como fazer um push de um commit vazio no Git
+title: 'Como fazer um push de um commit vazio no Git'
 created: 2023-01-13 20:58:55.955Z
 updated: 2023-01-13 21:04:57.659Z
 tags: Git
