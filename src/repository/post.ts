@@ -1,4 +1,3 @@
-import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import MiniSearch from 'minisearch'
 
@@ -12,12 +11,14 @@ export class PostRepository {
   }
 
   private async postsFileList() {
+    const fs = await import('node:fs/promises').then((res) => res.default)
     return (await fs.readdir(this.postsPath)).map(
       (file) => `${this.postsPath}/${file}`,
     )
   }
 
   async create(post: PostEntity) {
+    const fs = await import('node:fs/promises').then((res) => res.default)
     const id = generatePostId({ created: post.created, title: post.title })
     await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
 
@@ -116,6 +117,7 @@ export class PostRepository {
   }
 
   async update(post: PostEntity) {
+    const fs = await import('node:fs/promises').then((res) => res.default)
     const id = generatePostId({ created: post.created, title: post.title })
     await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
 
