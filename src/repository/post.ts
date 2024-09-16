@@ -1,5 +1,4 @@
 // import fs from 'node:fs/promises'
-// import matter from 'gray-matter'
 import MiniSearch from 'minisearch'
 
 import { PostEntity } from '../entities/post.js'
@@ -122,74 +121,76 @@ export class PostRepository {
   //   return id
   // }
 
-  // async index() {
-  //   // await this.postsFileList()
-  //   const list = [].reverse()
-  //   const index: {
-  //     tags?: Record<string, PostEntity[]>
-  //     postsById?: Record<string, PostEntity>
-  //     postsBySlug?: Record<string, PostEntity>
-  //   } & Record<string, PostEntity[]> = {}
+  async index() {
+    const matter = await import('gray-matter').then((res) => res.default)
 
-  //   for (const file of list) {
-  //     const { data, content } = matter.read(file)
+    // await this.postsFileList()
+    const list = [].reverse()
+    const index: {
+      tags?: Record<string, PostEntity[]>
+      postsById?: Record<string, PostEntity>
+      postsBySlug?: Record<string, PostEntity>
+    } & Record<string, PostEntity[]> = {}
 
-  //     if (!index[data.locale]) {
-  //       index[data.locale] = []
-  //     }
+    for (const file of list) {
+      const { data, content } = matter.read(file)
 
-  //     const post = new PostEntity({
-  //       id: data.id,
-  //       title: data.title,
-  //       locale: data.locale,
-  //       created: new Date(data.created),
-  //       updated: new Date(data.updated),
-  //       content,
-  //       tags: data.tags.split(', '),
-  //       translates: data.translates,
-  //     })
+      if (!index[data.locale]) {
+        index[data.locale] = []
+      }
 
-  //     for (const tag of post.tags) {
-  //       if (!index.tags) {
-  //         index.tags = {}
-  //       }
+      const post = new PostEntity({
+        id: data.id,
+        title: data.title,
+        locale: data.locale,
+        created: new Date(data.created),
+        updated: new Date(data.updated),
+        content,
+        tags: data.tags.split(', '),
+        translates: data.translates,
+      })
 
-  //       if (!index.tags[tag]) {
-  //         index.tags[tag] = []
-  //       }
+      for (const tag of post.tags) {
+        if (!index.tags) {
+          index.tags = {}
+        }
 
-  //       index.tags[tag].push(post)
-  //     }
+        if (!index.tags[tag]) {
+          index.tags[tag] = []
+        }
 
-  //     if (!index?.postsById) {
-  //       index.postsById = {}
-  //     }
+        index.tags[tag].push(post)
+      }
 
-  //     if (!index?.postsBySlug) {
-  //       index.postsBySlug = {}
-  //     }
+      if (!index?.postsById) {
+        index.postsById = {}
+      }
 
-  //     index[data.locale].push(post)
-  //     index.postsById[data.id] = post
-  //     index.postsBySlug[post.slug] = post
-  //   }
+      if (!index?.postsBySlug) {
+        index.postsBySlug = {}
+      }
 
-  //   index['pt-BR'] = index['pt-BR'].sort(
-  //     (a, b) => b.created.getTime() - a.created.getTime(),
-  //   )
+      index[data.locale].push(post)
+      index.postsById[data.id] = post
+      index.postsBySlug[post.slug] = post
+    }
 
-  //   index['en-US'] = index['en-US'].sort(
-  //     (a, b) => b.created.getTime() - a.created.getTime(),
-  //   )
+    index['pt-BR'] = index['pt-BR'].sort(
+      (a, b) => b.created.getTime() - a.created.getTime(),
+    )
 
-  //   for (const tag in index.tags) {
-  //     index.tags[tag] = index.tags[tag].sort(
-  //       (a, b) => b.created.getTime() - a.created.getTime(),
-  //     )
-  //   }
+    index['en-US'] = index['en-US'].sort(
+      (a, b) => b.created.getTime() - a.created.getTime(),
+    )
 
-  //   return index
-  // }
+    for (const tag in index.tags) {
+      index.tags[tag] = index.tags[tag].sort(
+        (a, b) => b.created.getTime() - a.created.getTime(),
+      )
+    }
+
+    return index
+  }
 
   async paginate({
     page = 1,
