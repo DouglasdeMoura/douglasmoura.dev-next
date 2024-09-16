@@ -1,3 +1,4 @@
+/*
 import fs from 'node:fs/promises'
 import postService from '../services/post.js'
 
@@ -31,3 +32,4 @@ async function indexPosts() {
 }
 
 indexPosts()
+*/

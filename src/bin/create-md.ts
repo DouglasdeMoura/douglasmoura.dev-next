@@ -1,3 +1,4 @@
+/*
 import fs from 'node:fs'
 import posts from '../database/posts.json'
 
@@ -81,3 +82,4 @@ const main = async () => {
 }
 
 main()
+*/
