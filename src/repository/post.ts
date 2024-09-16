@@ -1,9 +1,9 @@
 // import fs from 'node:fs/promises'
-import matter from 'gray-matter'
+// import matter from 'gray-matter'
 import MiniSearch from 'minisearch'
 
 import { PostEntity } from '../entities/post.js'
-import { generatePostId } from '../services/generate-post-id.js'
+// import { generatePostId } from '../services/generate-post-id.js'
 import type { Locale } from '../constants/index.js'
 
 export class PostRepository {
@@ -122,74 +122,74 @@ export class PostRepository {
   //   return id
   // }
 
-  async index() {
-    // await this.postsFileList()
-    const list = [].reverse()
-    const index: {
-      tags?: Record<string, PostEntity[]>
-      postsById?: Record<string, PostEntity>
-      postsBySlug?: Record<string, PostEntity>
-    } & Record<string, PostEntity[]> = {}
+  // async index() {
+  //   // await this.postsFileList()
+  //   const list = [].reverse()
+  //   const index: {
+  //     tags?: Record<string, PostEntity[]>
+  //     postsById?: Record<string, PostEntity>
+  //     postsBySlug?: Record<string, PostEntity>
+  //   } & Record<string, PostEntity[]> = {}
 
-    for (const file of list) {
-      const { data, content } = matter.read(file)
+  //   for (const file of list) {
+  //     const { data, content } = matter.read(file)
 
-      if (!index[data.locale]) {
-        index[data.locale] = []
-      }
+  //     if (!index[data.locale]) {
+  //       index[data.locale] = []
+  //     }
 
-      const post = new PostEntity({
-        id: data.id,
-        title: data.title,
-        locale: data.locale,
-        created: new Date(data.created),
-        updated: new Date(data.updated),
-        content,
-        tags: data.tags.split(', '),
-        translates: data.translates,
-      })
+  //     const post = new PostEntity({
+  //       id: data.id,
+  //       title: data.title,
+  //       locale: data.locale,
+  //       created: new Date(data.created),
+  //       updated: new Date(data.updated),
+  //       content,
+  //       tags: data.tags.split(', '),
+  //       translates: data.translates,
+  //     })
 
-      for (const tag of post.tags) {
-        if (!index.tags) {
-          index.tags = {}
-        }
+  //     for (const tag of post.tags) {
+  //       if (!index.tags) {
+  //         index.tags = {}
+  //       }
 
-        if (!index.tags[tag]) {
-          index.tags[tag] = []
-        }
+  //       if (!index.tags[tag]) {
+  //         index.tags[tag] = []
+  //       }
 
-        index.tags[tag].push(post)
-      }
+  //       index.tags[tag].push(post)
+  //     }
 
-      if (!index?.postsById) {
-        index.postsById = {}
-      }
+  //     if (!index?.postsById) {
+  //       index.postsById = {}
+  //     }
 
-      if (!index?.postsBySlug) {
-        index.postsBySlug = {}
-      }
+  //     if (!index?.postsBySlug) {
+  //       index.postsBySlug = {}
+  //     }
 
-      index[data.locale].push(post)
-      index.postsById[data.id] = post
-      index.postsBySlug[post.slug] = post
-    }
+  //     index[data.locale].push(post)
+  //     index.postsById[data.id] = post
+  //     index.postsBySlug[post.slug] = post
+  //   }
 
-    index['pt-BR'] = index['pt-BR'].sort(
-      (a, b) => b.created.getTime() - a.created.getTime(),
-    )
+  //   index['pt-BR'] = index['pt-BR'].sort(
+  //     (a, b) => b.created.getTime() - a.created.getTime(),
+  //   )
 
-    index['en-US'] = index['en-US'].sort(
-      (a, b) => b.created.getTime() - a.created.getTime(),
-    )
+  //   index['en-US'] = index['en-US'].sort(
+  //     (a, b) => b.created.getTime() - a.created.getTime(),
+  //   )
 
-    for (const tag in index.tags) {
-      index.tags[tag] = index.tags[tag].sort(
-        (a, b) => b.created.getTime() - a.created.getTime(),
-      )
-    }
+  //   for (const tag in index.tags) {
+  //     index.tags[tag] = index.tags[tag].sort(
+  //       (a, b) => b.created.getTime() - a.created.getTime(),
+  //     )
+  //   }
 
-    return index
-  }
+  //   return index
+  // }
 
   async paginate({
     page = 1,
