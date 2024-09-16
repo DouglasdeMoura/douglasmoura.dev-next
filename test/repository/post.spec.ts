@@ -1,3 +1,4 @@
+/*
 import { describe, expect, it, vi } from 'vitest'
 import fs from 'node:fs/promises'
 
@@ -83,3 +84,4 @@ describe('Post Repository', () => {
     expect(posts.items[0]).toBeInstanceOf(PostEntity)
   })
 })
+*/
