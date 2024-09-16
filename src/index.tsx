@@ -14,11 +14,14 @@ import { Post } from './template/post.js'
 import { Error500 } from './template/500.js'
 import { Index } from './template/index.js'
 import { setCookie } from 'hono/cookie'
+import { serveStatic } from 'hono/cloudflare-pages'
 
 const app = new Hono<ServiceEnv>()
 
 app.use(renderer)
 app.use(service)
+
+app.use('/static/*', serveStatic())
 
 app.post('/set-locale', async (c) => {
   const locale = (await c.req.formData()).get('locale') as string
