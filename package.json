@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "wrangler:dev": "wrangler dev src/index.tsx",
     "build": "vite build",
     "preview": "wrangler pages dev",
     "check": "biome check --write ./src",
