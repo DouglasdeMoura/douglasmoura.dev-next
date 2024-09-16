@@ -25,73 +25,75 @@ export class PostRepository {
   }
 
   async getById(id: string) {
-    const files = (await this.postsFileList()).filter((file) =>
-      file.includes(id),
+    const postsById = await import('../database/posts/postsById.json').then(
+      (res) => res.default,
     )
-    const path = files?.[0]
+    const data = postsById?.[id as keyof typeof postsById]
 
-    if (!path) {
+    if (!data) {
       return null
     }
-
-    const { data, content } = matter.read(path)
 
     return new PostEntity({
       id: data.id,
       title: data.title,
-      locale: data.locale,
+      locale: data.locale as Locale,
       created: new Date(data.created),
       updated: new Date(data.updated),
-      content: content,
-      tags: data.tags.split(', '),
-      translates: data.translates,
+      content: data.content,
+      tags: data.tags,
+      translates: data.translates ?? undefined,
     })
   }
 
   async getBySlug(slug: string) {
-    const files = (await this.postsFileList()).filter((file) =>
-      file.includes(slug),
+    const postsBySlug = await import('../database/posts/postsBySlug.json').then(
+      (res) => res.default,
     )
-    const path = files?.[0]
+    const data = postsBySlug?.[slug as keyof typeof postsBySlug]
 
-    if (!path) {
+    if (!data) {
       return null
     }
-
-    const { data, content } = matter.read(path)
 
     return new PostEntity({
       id: data.id,
       title: data.title,
-      locale: data.locale,
+      locale: data.locale as Locale,
       created: new Date(data.created),
       updated: new Date(data.updated),
-      content: content,
-      tags: data.tags.split(', '),
-      translates: data.translates,
+      content: data.content,
+      tags: data.tags,
+      translates: data.translates ?? undefined,
     })
   }
 
   async getAllPosts({ locale, tag }: { locale: Locale; tag?: string }) {
-    const index = await fs
-      .readFile(`${this.postsPath}/index.json`, 'utf-8')
-      .then(JSON.parse)
+    const enUS = await import('../database/posts/en-US.json').then(
+      (res) => res.default,
+    )
+    const ptBR = await import('../database/posts/pt-BR.json').then(
+      (res) => res.default,
+    )
+    const tags = await import('../database/posts/tags.json').then(
+      (res) => res.default,
+    )
 
     const posts = !tag
-      ? index[locale].map(
-          (post: PostEntity) =>
+      ? (locale === 'en-US' ? enUS : ptBR).map(
+          (post) =>
             new PostEntity({
               id: post.id,
               title: post.title,
-              locale: post.locale,
+              locale: post.locale as Locale,
               created: new Date(post.created),
               updated: new Date(post.updated),
               content: post.content,
               tags: post.tags,
-              translates: post.translates,
+              translates: post.translates ?? undefined,
             }),
         )
-      : index.tags[tag].reduce((acc: PostEntity[], post: PostEntity) => {
+      : tags[tag as keyof typeof tags].reduce((acc: PostEntity[], post) => {
           if (post.locale === locale) {
             acc.push(
               new PostEntity({
@@ -102,7 +104,7 @@ export class PostRepository {
                 updated: new Date(post.updated),
                 content: post.content,
                 tags: post.tags,
-                translates: post.translates,
+                translates: post.translates ?? undefined,
               }),
             )
           }
@@ -122,10 +124,11 @@ export class PostRepository {
 
   async index() {
     const list = (await this.postsFileList()).reverse()
-    const index: { tags?: Record<string, PostEntity[]> } & Record<
-      string,
-      PostEntity[]
-    > = {}
+    const index: {
+      tags?: Record<string, PostEntity[]>
+      postsById?: Record<string, PostEntity>
+      postsBySlug?: Record<string, PostEntity>
+    } & Record<string, PostEntity[]> = {}
 
     for (const file of list) {
       const { data, content } = matter.read(file)
@@ -157,7 +160,17 @@ export class PostRepository {
         index.tags[tag].push(post)
       }
 
+      if (!index?.postsById) {
+        index.postsById = {}
+      }
+
+      if (!index?.postsBySlug) {
+        index.postsBySlug = {}
+      }
+
       index[data.locale].push(post)
+      index.postsById[data.id] = post
+      index.postsBySlug[post.slug] = post
     }
 
     index['pt-BR'] = index['pt-BR'].sort(
