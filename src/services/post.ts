@@ -31,6 +31,10 @@ export class PostService {
   async index() {
     return this.repository.index()
   }
+
+  async search(args: Parameters<PostRepository['search']>[0]) {
+    return this.repository.search(args)
+  }
 }
 
 export default new PostService()

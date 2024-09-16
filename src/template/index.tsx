@@ -21,13 +21,14 @@ export function Index({ posts, currentPage, totalPages }: IndexProps) {
       </form>
       <main>
         <h1>Posts</h1>
-
+        {!posts || posts.length === 0 ? <p>No posts found</p> : null}
         {posts.map((post) => (
           <Post {...post} variant="excerpt" />
         ))}
       </main>
-
-      <Pagination currentPage={currentPage} totalPages={totalPages} />
+      {posts?.length > 0 ? (
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
+      ) : null}
     </div>
   )
 }

@@ -27,6 +27,27 @@ app.post('/set-locale', async (c) => {
   return c.redirect('/')
 })
 
+app.on('GET', ['/search', '/en-US/search'], async (c) => {
+  const query = c.req.query('q')
+
+  if (!query) {
+    throw new HTTPException(400, {
+      message: 'Query is required',
+    })
+  }
+
+  const posts = await c.var.service.post.search({
+    query,
+    locale: c.var.selectedLocale,
+  })
+
+  if (c.req.header('Content-type') === 'application/json') {
+    return c.json({ posts })
+  }
+
+  return c.render(<Index posts={posts} currentPage={1} totalPages={1} />)
+})
+
 app.on('GET', ['/', '/en-US', '/en-US/'], async (c) => {
   if (
     c.var.selectedLocale !== DEFAULT_LANGUAGE &&

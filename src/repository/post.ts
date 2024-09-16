@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
+import MiniSearch from 'minisearch'
 
 import { PostEntity } from '../entities/post.js'
 import { generatePostId } from '../services/generate-post-id.js'
@@ -69,6 +70,47 @@ export class PostRepository {
       tags: data.tags.split(', '),
       translates: data.translates,
     })
+  }
+
+  async getAllPosts({ locale, tag }: { locale: Locale; tag?: string }) {
+    const index = await fs
+      .readFile(`${this.postsPath}/index.json`, 'utf-8')
+      .then(JSON.parse)
+
+    const posts = !tag
+      ? index[locale].map(
+          (post: PostEntity) =>
+            new PostEntity({
+              id: post.id,
+              title: post.title,
+              locale: post.locale,
+              created: new Date(post.created),
+              updated: new Date(post.updated),
+              content: post.content,
+              tags: post.tags,
+              translates: post.translates,
+            }),
+        )
+      : index.tags[tag].reduce((acc: PostEntity[], post: PostEntity) => {
+          if (post.locale === locale) {
+            acc.push(
+              new PostEntity({
+                id: post.id,
+                title: post.title,
+                locale: post.locale,
+                created: new Date(post.created),
+                updated: new Date(post.updated),
+                content: post.content,
+                tags: post.tags,
+                translates: post.translates,
+              }),
+            )
+          }
+
+          return acc
+        }, [])
+
+    return posts
   }
 
   async update(post: PostEntity) {
@@ -141,43 +183,8 @@ export class PostRepository {
     tag,
     locale,
   }: { page?: number; limit?: number; tag?: string; locale: Locale }) {
-    const index = await fs
-      .readFile(`${this.postsPath}/index.json`, 'utf-8')
-      .then(JSON.parse)
+    const posts = await this.getAllPosts({ locale, tag })
     const start = page > 1 ? (page - 1) * limit : 0
-    const posts = !tag
-      ? index[locale].map(
-          (post: PostEntity) =>
-            new PostEntity({
-              id: post.id,
-              title: post.title,
-              locale: post.locale,
-              created: new Date(post.created),
-              updated: new Date(post.updated),
-              content: post.content,
-              tags: post.tags,
-              translates: post.translates,
-            }),
-        )
-      : index.tags[tag].reduce((acc: PostEntity[], post: PostEntity) => {
-          if (post.locale === locale) {
-            acc.push(
-              new PostEntity({
-                id: post.id,
-                title: post.title,
-                locale: post.locale,
-                created: new Date(post.created),
-                updated: new Date(post.updated),
-                content: post.content,
-                tags: post.tags,
-                translates: post.translates,
-              }),
-            )
-          }
-
-          return acc
-        }, [])
-
     const totalPosts = posts.length
     const totalPages = Math.ceil(totalPosts / limit)
 
@@ -187,6 +194,32 @@ export class PostRepository {
       posts: totalPosts,
       items: posts.slice(start, start + limit),
     }
+  }
+
+  async search({
+    query,
+    locale,
+    tag,
+  }: { query: string; tag?: string; locale: Locale }) {
+    const posts = await this.getAllPosts({ locale, tag })
+    const minisearch = new MiniSearch({
+      fields: ['title', 'content', 'tags'],
+      storeFields: [
+        'id',
+        'title',
+        'slug',
+        'locale',
+        'created',
+        'updated',
+        'content',
+        'tags',
+        'translates',
+      ],
+    })
+
+    minisearch.addAll(posts)
+
+    return minisearch.search(query) as unknown as PostEntity[]
   }
 }
 
