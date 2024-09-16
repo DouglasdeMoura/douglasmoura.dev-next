@@ -1,3 +1,4 @@
+// import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import MiniSearch from 'minisearch'
 
@@ -10,20 +11,18 @@ export class PostRepository {
     return './src/database/posts'
   }
 
-  private async postsFileList() {
-    const fs = await import('node:fs/promises').then((res) => res.default)
-    return (await fs.readdir(this.postsPath)).map(
-      (file) => `${this.postsPath}/${file}`,
-    )
-  }
+  // private async postsFileList() {
+  //   return (await fs.readdir(this.postsPath)).map(
+  //     (file) => `${this.postsPath}/${file}`,
+  //   )
+  // }
 
-  async create(post: PostEntity) {
-    const fs = await import('node:fs/promises').then((res) => res.default)
-    const id = generatePostId({ created: post.created, title: post.title })
-    await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
+  // async create(post: PostEntity) {
+  //   const id = generatePostId({ created: post.created, title: post.title })
+  //   await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
 
-    return id
-  }
+  //   return id
+  // }
 
   async getById(id: string) {
     const postsById = await import('../database/posts/postsById.json').then(
@@ -116,16 +115,16 @@ export class PostRepository {
     return posts
   }
 
-  async update(post: PostEntity) {
-    const fs = await import('node:fs/promises').then((res) => res.default)
-    const id = generatePostId({ created: post.created, title: post.title })
-    await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
+  // async update(post: PostEntity) {
+  //   const id = generatePostId({ created: post.created, title: post.title })
+  //   await fs.writeFile(`${this.postsPath}/${id}.md`, post.toString())
 
-    return id
-  }
+  //   return id
+  // }
 
   async index() {
-    const list = (await this.postsFileList()).reverse()
+    // await this.postsFileList()
+    const list = [].reverse()
     const index: {
       tags?: Record<string, PostEntity[]>
       postsById?: Record<string, PostEntity>
