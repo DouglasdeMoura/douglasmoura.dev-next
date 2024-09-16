@@ -30,7 +30,7 @@ export function Post({
             </a>
           </h2>
         )}
-        {/*
+
         <p>
           <time dateTime={created.toISOString()}>
             {created.toLocaleDateString(locale)}
@@ -44,7 +44,7 @@ export function Post({
             </>
           )}
         </p>
-        */}
+
         <ul>
           {tags?.map((tag) => (
             <li key={tag}>{tag}</li>
