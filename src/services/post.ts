@@ -27,6 +27,10 @@ export class PostService {
   async paginate(args: Parameters<PostRepository['paginate']>[0]) {
     return this.repository.paginate(args)
   }
+
+  async index() {
+    return this.repository.index()
+  }
 }
 
 export default new PostService()
