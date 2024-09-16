@@ -1,3 +1,4 @@
+/*
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import { PostEntity } from '../entities/post'
@@ -105,3 +106,5 @@ async function main() {
 }
 
 main()
+
+/**/
