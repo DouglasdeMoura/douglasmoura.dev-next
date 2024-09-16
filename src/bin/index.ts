@@ -1,9 +1,82 @@
-/*
 import fs from 'node:fs/promises'
-import postService from '../services/post.js'
+import matter from 'gray-matter'
+import { PostEntity } from '../entities/post'
+import { POSTS_PATH } from '../constants'
+
+async function fileList() {
+  return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
+}
 
 async function indexPosts() {
-  const data = await postService.index()
+  const list = (await fileList()).reverse()
+  const index: {
+    tags?: Record<string, PostEntity[]>
+    postsById?: Record<string, PostEntity>
+    postsBySlug?: Record<string, PostEntity>
+  } & Record<string, PostEntity[]> = {}
+
+  for (const file of list) {
+    const { data, content } = matter.read(file)
+
+    if (!index[data.locale]) {
+      index[data.locale] = []
+    }
+
+    const post = new PostEntity({
+      id: data.id,
+      title: data.title,
+      locale: data.locale,
+      created: new Date(data.created),
+      updated: new Date(data.updated),
+      content,
+      tags: data.tags.split(', '),
+      translates: data.translates,
+    })
+
+    for (const tag of post.tags) {
+      if (!index.tags) {
+        index.tags = {}
+      }
+
+      if (!index.tags[tag]) {
+        index.tags[tag] = []
+      }
+
+      index.tags[tag].push(post)
+    }
+
+    if (!index?.postsById) {
+      index.postsById = {}
+    }
+
+    if (!index?.postsBySlug) {
+      index.postsBySlug = {}
+    }
+
+    index[data.locale].push(post)
+    index.postsById[data.id] = post
+    index.postsBySlug[post.slug] = post
+  }
+
+  index['pt-BR'] = index['pt-BR'].sort(
+    (a, b) => b.created.getTime() - a.created.getTime(),
+  )
+
+  index['en-US'] = index['en-US'].sort(
+    (a, b) => b.created.getTime() - a.created.getTime(),
+  )
+
+  for (const tag in index.tags) {
+    index.tags[tag] = index.tags[tag].sort(
+      (a, b) => b.created.getTime() - a.created.getTime(),
+    )
+  }
+
+  return index
+}
+
+async function main() {
+  const data = await indexPosts()
 
   fs.writeFile(
     './src/database/posts/postsById.json',
@@ -31,5 +104,4 @@ async function indexPosts() {
   )
 }
 
-indexPosts()
-*/
+main()
