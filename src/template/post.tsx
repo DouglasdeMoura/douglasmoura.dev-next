@@ -47,7 +47,11 @@ export function Post({
 
         <ul>
           {tags?.map((tag) => (
-            <li key={tag}>{tag}</li>
+            <li key={tag}>
+              <a href={`/${locale === 'en-US' ? `${locale}/` : ''}tags/${tag}`}>
+                {tag}
+              </a>
+            </li>
           ))}
         </ul>
       </header>

@@ -81,13 +81,13 @@ export class PostRepository {
   async paginate({
     page = 1,
     limit = 10,
+    tag,
     locale,
-  }: { page?: number; limit?: number; locale: Locale }) {
+  }: { page?: number; limit?: number; tag?: string; locale: Locale }) {
     const list = (await this.postsFileList()).reverse()
+    const start = page > 1 ? (page - 1) * limit : 0
     const totalPosts = list.length
     const totalPages = Math.ceil(totalPosts / limit)
-    const start = page > 1 ? (page - 1) * limit : 0
-
     const posts = []
 
     for (let i = start; i < start + limit; i++) {
@@ -100,6 +100,10 @@ export class PostRepository {
       const { data, content } = matter.read(file)
 
       if (data.locale !== locale) {
+        continue
+      }
+
+      if (tag && !data.tags.includes(tag)) {
         continue
       }
 

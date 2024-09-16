@@ -86,6 +86,39 @@ app.on(
   },
 )
 
+app.on(
+  'GET',
+  [
+    '/tags/:tag',
+    '/en-US/tags/:tag',
+    '/tags/:tag/page/:page',
+    '/en-US/tags/:tag/page/:page',
+  ],
+  async (c) => {
+    const tag = c.req.param('tag')
+    const page = Number.parseInt(c.req.param('page')) || 1
+    const posts = await c.var.service.post.paginate({
+      page,
+      locale: c.var.selectedLocale,
+      tag,
+    })
+
+    if (!posts.items.length) {
+      throw new HTTPException(404, {
+        message: 'Tag not found',
+      })
+    }
+
+    return c.render(
+      <Index
+        posts={posts.items}
+        currentPage={posts.currentPage}
+        totalPages={posts.pages}
+      />,
+    )
+  },
+)
+
 app.on('GET', ['/:id', '/en-US/:id', '/en-US/:id/'], async (c) => {
   const post = await c.var.service.post.getBySlug(c.req.param('id'))
 
