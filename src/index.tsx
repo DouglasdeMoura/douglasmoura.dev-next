@@ -13,11 +13,19 @@ import { Error404 } from './template/404.js'
 import { Post } from './template/post.js'
 import { Error500 } from './template/500.js'
 import { Index } from './template/index.js'
+import { setCookie } from 'hono/cookie'
 
 const app = new Hono<ServiceEnv>()
 
 app.use(renderer)
 app.use(service)
+
+app.post('/set-locale', async (c) => {
+  const locale = (await c.req.formData()).get('locale') as string
+  setCookie(c, 'selected_localed', locale)
+
+  return c.redirect('/')
+})
 
 app.on('GET', ['/', '/en-US', '/en-US/'], async (c) => {
   if (
@@ -91,7 +99,7 @@ app.on('GET', ['/:id', '/en-US/:id', '/en-US/:id/'], async (c) => {
 })
 
 app.onError((err, c) => {
-  // console.log(err)
+  console.log(err)
   if (err instanceof HTTPException) {
     if (err.status === 404) {
       return c.render(<Error404 />)

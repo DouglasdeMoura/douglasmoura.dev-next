@@ -11,6 +11,14 @@ type IndexProps = {
 export function Index({ posts, currentPage, totalPages }: IndexProps) {
   return (
     <div>
+      <form method="post" action="/set-locale">
+        <button name="locale" value="en-US" type="submit">
+          en
+        </button>
+        <button name="locale" value="pt-BR" type="submit">
+          pt
+        </button>
+      </form>
       <main>
         <h1>Posts</h1>
 

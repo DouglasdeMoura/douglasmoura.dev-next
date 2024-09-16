@@ -1,12 +1,8 @@
-import { jsxRenderer, useRequestContext } from 'hono/jsx-renderer'
-import { getPreferredLanguage } from './services/get-preferred-language.js'
+import { jsxRenderer } from 'hono/jsx-renderer'
 
-export const renderer = jsxRenderer(({ children }) => {
-  const c = useRequestContext()
-  const lang = getPreferredLanguage(c.req.header('Accept-Language'))
-
+export const renderer = jsxRenderer(({ children }, c) => {
   return (
-    <html lang={lang}>
+    <html lang={c.var.selectedLocale}>
       <head>
         <link href="/static/style.css" rel="stylesheet" />
       </head>
