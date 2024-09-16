@@ -1,4 +1,5 @@
 import slugify from '@sindresorhus/slugify'
+import type { Locale } from '../constants/index.js'
 
 type ID = string
 
@@ -6,7 +7,7 @@ export class PostEntity {
   id: ID
   title: string
   slug: string
-  locale: 'en-US' | 'pt-BR'
+  locale: Locale
   created: Date
   updated: Date
   content: string

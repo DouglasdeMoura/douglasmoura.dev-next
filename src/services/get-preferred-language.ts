@@ -1,13 +1,8 @@
-import type { PostEntity } from '../entities/post.js'
-
-type Locale = PostEntity['locale']
-
-// Define the preferred languages, in order of preference
-const PREFERRED_LANGUAGES: Locale[] = ['en-US', 'pt-BR']
+import { type Locale, SUPPORTED_LOCALES } from '../constants/index.js'
 
 function getPreferredLanguages(acceptLanguage?: string) {
   if (!acceptLanguage) {
-    return PREFERRED_LANGUAGES
+    return SUPPORTED_LOCALES
   }
 
   return acceptLanguage
@@ -22,13 +17,11 @@ function getPreferredLanguages(acceptLanguage?: string) {
     .map((item) => item.code)
 }
 
-export function getPreferredLanguage(
-  acceptLanguage?: string,
-): Locale {
+export function getPreferredLanguage(acceptLanguage?: string): Locale {
   const preferredLanguages = getPreferredLanguages(acceptLanguage)
   const lang = preferredLanguages.find((lang) =>
-    PREFERRED_LANGUAGES.includes(lang as Locale),
+    SUPPORTED_LOCALES.includes(lang as Locale),
   ) as Locale
 
-  return lang || PREFERRED_LANGUAGES[0]
+  return lang || SUPPORTED_LOCALES[0]
 }

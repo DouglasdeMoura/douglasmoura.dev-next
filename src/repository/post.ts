@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 
 import { PostEntity } from '../entities/post.js'
 import { generatePostId } from '../services/generate-post-id.js'
+import type { Locale } from '../constants/index.js'
 
 export class PostRepository {
   get postsPath() {
@@ -81,7 +82,7 @@ export class PostRepository {
     page = 1,
     limit = 10,
     locale,
-  }: { page?: number; limit?: number; locale: PostEntity['locale'] }) {
+  }: { page?: number; limit?: number; locale: Locale }) {
     const list = (await this.postsFileList()).reverse()
     const totalPosts = list.length
     const totalPages = Math.ceil(totalPosts / limit)
