@@ -8,8 +8,9 @@ export class PostService {
     this.repository = postRepository
   }
 
-  async create(post: PostEntity) {
-    return this.repository.create(post)
+  async create(_post: PostEntity) {
+    // return this.repository.create(post)
+    throw new Error('Not implemented')
   }
 
   async getById(id: string) {
@@ -20,16 +21,13 @@ export class PostService {
     return this.repository.getBySlug(slug)
   }
 
-  async update(post: PostEntity) {
-    return this.repository.update(post)
+  async update(_post: PostEntity) {
+    // return this.repository.update(post)
+    throw new Error('Not implemented')
   }
 
   async paginate(args: Parameters<PostRepository['paginate']>[0]) {
     return this.repository.paginate(args)
-  }
-
-  async index() {
-    return this.repository.index()
   }
 
   async search(args: Parameters<PostRepository['search']>[0]) {
