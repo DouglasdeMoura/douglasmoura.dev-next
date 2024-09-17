@@ -20,6 +20,37 @@ md.use(
   }),
 )
 
+const defaultRender = md.renderer.rules.html_block
+md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
+  console.log(tokens[idx].content)
+  if (tokens[idx].content.startsWith('<SVG64')) {
+    const content = tokens[idx].content
+      .replace('<SVG64 content="', '')
+      .replace('" />', '')
+    const buffer = Buffer.from(content, 'base64')
+    tokens[idx].content =
+      `<div class="flex align-center justify-center">${buffer.toString('ascii')}</div>`
+
+    return defaultRender?.(tokens, idx, options, env, self) || ''
+  }
+
+  if (tokens[idx].content.startsWith('<CodePen')) {
+    const content = tokens[idx].content
+      .replace(
+        '<CodePen id="',
+        `<iframe loading="lazy" allowtransparency allowfullscreen height="380px" width="100%" title="Styled Dialog" src="https://codepen.io/douglasdemoura/embed/`,
+      )
+      .replace('" />', '')
+
+    tokens[idx].content =
+      `${content}?default-tab=result&embed-version=2"></iframe>`
+
+    return defaultRender?.(tokens, idx, options, env, self) || ''
+  }
+
+  return defaultRender?.(tokens, idx, options, env, self) || ''
+}
+
 async function indexPosts() {
   const list = (await fileList()).reverse()
   const index: {

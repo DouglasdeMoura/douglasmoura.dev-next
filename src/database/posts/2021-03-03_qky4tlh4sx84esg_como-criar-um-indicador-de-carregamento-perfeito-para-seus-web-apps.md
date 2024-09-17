@@ -188,7 +188,7 @@ que seja igual a `true`, diminuiremos a opacidade do elemento e adicionaremos um
 
 Depois de tudo isso, podemos ver o nosso exemplo em ação:
 
-<iframe height="300" style={{width: '100%'}} scrolling="no" title="Exemplo de loading acessível" src="https://codepen.io/douglasdemoura/embed/poNqmYq?default-tab=" frameBorder="no" loading="lazy" />
+<iframe height="350" style="width: 100%" scrolling="no" title="Exemplo de loading acessível" src="https://codepen.io/douglasdemoura/embed/poNqmYq?default-tab=" frameBorder="no" loading="lazy" />
 
 Experimente utilizar um leitor de tela no exemplo que acabamos de construir e veja
 como os atributos que adicionados ao nosso exemplo fornecem uma boa experiência de
