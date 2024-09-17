@@ -10,7 +10,7 @@ type IndexProps = {
 
 export function Index({ posts, currentPage, totalPages }: IndexProps) {
   return (
-    <div>
+    <>
       <form method="post" action="/set-locale">
         <button name="locale" value="en-US" type="submit">
           en
@@ -19,8 +19,7 @@ export function Index({ posts, currentPage, totalPages }: IndexProps) {
           pt
         </button>
       </form>
-      <main>
-        <h1>Posts</h1>
+      <main className="flex flex-col gap-4">
         {!posts || posts.length === 0 ? <p>No posts found</p> : null}
         {posts.map((post) => (
           <Post {...post} variant="excerpt" />
@@ -29,6 +28,6 @@ export function Index({ posts, currentPage, totalPages }: IndexProps) {
       {posts?.length > 0 ? (
         <Pagination currentPage={currentPage} totalPages={totalPages} />
       ) : null}
-    </div>
+    </>
   )
 }

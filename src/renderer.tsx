@@ -6,7 +6,9 @@ export const renderer = jsxRenderer(({ children }, c) => {
       <head>
         <link href="/static/style.css" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="m-auto max-w-[960px]">{children}</div>
+      </body>
     </html>
   )
 })

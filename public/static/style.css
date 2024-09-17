@@ -1270,12 +1270,24 @@ select {
   margin: 0.25rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .inline-block {
   display: inline-block;
 }
 
 .flex {
   display: flex;
+}
+
+.max-w-\[220px\] {
+  max-width: 220px;
+}
+
+.max-w-\[960px\] {
+  max-width: 960px;
 }
 
 .flex-col {
