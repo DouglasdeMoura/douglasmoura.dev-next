@@ -1,4 +1,5 @@
 import type { PostEntity } from '../entities/post.js'
+import { Title } from './components/title.js'
 
 type PostProps = {
   variant?: 'post' | 'excerpt'
@@ -22,13 +23,13 @@ export function Post({
     <article id={`post-${id}`} class={`${variant}`}>
       <header>
         {variant === 'post' ? (
-          <h1 className="font-extrabold text-4xl">{title}</h1>
+          <Title order={1}>{title}</Title>
         ) : (
-          <h2 className="font-extrabold text-3xl">
+          <Title order={2}>
             <a href={link} rel="bookmark">
               {title}
             </a>
-          </h2>
+          </Title>
         )}
 
         <p className="text-sm">

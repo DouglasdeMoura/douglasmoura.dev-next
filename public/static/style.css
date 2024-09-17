@@ -1266,6 +1266,18 @@ select {
   border-width: 0;
 }
 
+.text-wrap {
+  text-wrap: wrap;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1302,4 +1314,8 @@ select {
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.decoration-inherit {
+  text-decoration-color: inherit;
 }
