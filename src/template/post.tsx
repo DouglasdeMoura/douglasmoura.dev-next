@@ -1,5 +1,6 @@
 import type { PostEntity } from '../entities/post.js'
 import { DateTime } from './components/date-time.js'
+import { Tags } from './components/tags.js'
 import { Title } from './components/title.js'
 
 type PostProps = {
@@ -21,7 +22,7 @@ export function Post({
   const link = locale === 'en-US' ? `/${locale}/${slug}` : `/${slug}`
 
   return (
-    <article id={`post-${id}`} class={`${variant}`}>
+    <article id={`post-${id}`} class={`${variant} flex flex-col gap-4`}>
       <header>
         {variant === 'post' ? (
           <Title order={1}>{title}</Title>
@@ -33,17 +34,8 @@ export function Post({
           </Title>
         )}
         <DateTime created={created} updated={updated} />
-
-        <ul>
-          {tags?.map((tag) => (
-            <li key={tag}>
-              <a href={`/${locale === 'en-US' ? `${locale}/` : ''}tags/${tag}`}>
-                {tag}
-              </a>
-            </li>
-          ))}
-        </ul>
       </header>
+      <Tags tags={tags} />
       <div className="prose">{content}</div>
     </article>
   )
