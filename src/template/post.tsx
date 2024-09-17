@@ -1,4 +1,5 @@
 import type { PostEntity } from '../entities/post.js'
+import { DateTime } from './components/date-time.js'
 import { Title } from './components/title.js'
 
 type PostProps = {
@@ -31,21 +32,7 @@ export function Post({
             </a>
           </Title>
         )}
-
-        <p className="text-sm">
-          <span className="sr-only">Created at</span>
-          <time dateTime={created.toISOString()}>
-            {created.toLocaleDateString(locale)}
-          </time>
-          {updated && updated > created && (
-            <>
-              <span className="sr-only">Updated at</span>
-              <time dateTime={updated.toISOString()} className="sr-only">
-                {updated.toLocaleDateString(locale)}
-              </time>
-            </>
-          )}
-        </p>
+        <DateTime created={created} updated={updated} />
 
         <ul>
           {tags?.map((tag) => (
