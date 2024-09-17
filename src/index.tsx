@@ -21,6 +21,9 @@ const app = new Hono<ServiceEnv>()
 app.use(renderer)
 app.use(service)
 
+app.use('/static/*', async (c) => {
+  c.header('Cache-Control', 'public, max-age=31536000, immutable')
+})
 app.use('/static/*', serveStatic())
 
 app.post('/set-locale', async (c) => {
@@ -156,7 +159,7 @@ app.on('GET', ['/:id', '/en-US/:id', '/en-US/:id/'], async (c) => {
 })
 
 app.onError((err, c) => {
-  console.log(err)
+  console.log(err, c.req.url)
   if (err instanceof HTTPException) {
     if (err.status === 404) {
       return c.render(<Error404 />)
