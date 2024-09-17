@@ -19,7 +19,7 @@ export function Index({ posts, currentPage, totalPages }: IndexProps) {
           pt
         </button>
       </form>
-      <main className="flex flex-col gap-4">
+      <main className="flex flex-col gap-8">
         {!posts || posts.length === 0 ? <p>No posts found</p> : null}
         {posts.map((post) => (
           <Post {...post} variant="excerpt" />

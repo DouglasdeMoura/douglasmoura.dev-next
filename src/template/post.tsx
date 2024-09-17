@@ -22,7 +22,10 @@ export function Post({
   const link = locale === 'en-US' ? `/${locale}/${slug}` : `/${slug}`
 
   return (
-    <article id={`post-${id}`} class={`${variant} flex flex-col gap-4`}>
+    <article
+      id={`post-${id}`}
+      className={`${variant} flex flex-col gap-4 border-b border-b-slate-200 max-w-prose pb-10`}
+    >
       <header>
         {variant === 'post' ? (
           <Title order={1}>{title}</Title>

@@ -2,11 +2,23 @@ import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import { PostEntity } from '../entities/post.js'
 import { POSTS_PATH } from '../constants/index.js'
-import { marked } from 'marked'
+import Shiki from '@shikijs/markdown-it'
+import MarkdownIt from 'markdown-it'
 
 async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
 }
+
+const md = MarkdownIt()
+
+md.use(
+  await Shiki({
+    themes: {
+      light: 'dracula',
+      dark: 'dracula',
+    },
+  }),
+)
 
 async function indexPosts() {
   const list = (await fileList()).reverse()
@@ -29,7 +41,7 @@ async function indexPosts() {
       locale: data.locale,
       created: new Date(data.created),
       updated: new Date(data.updated),
-      content: await marked(content),
+      content: await md.render(content),
       tags: data.tags.split(', '),
       translates: data.translates,
     })
