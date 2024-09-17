@@ -19,26 +19,27 @@ export function Post({
   const link = locale === 'en-US' ? `/${locale}/${slug}` : `/${slug}`
 
   return (
-    <article id={`post-${id}`} class={variant}>
+    <article id={`post-${id}`} class={`${variant}`}>
       <header>
         {variant === 'post' ? (
-          <h1>{title}</h1>
+          <h1 className="font-extrabold text-4xl">{title}</h1>
         ) : (
-          <h2>
+          <h2 className="font-extrabold text-3xl">
             <a href={link} rel="bookmark">
               {title}
             </a>
           </h2>
         )}
 
-        <p>
+        <p className="text-sm">
+          <span className="sr-only">Created at</span>
           <time dateTime={created.toISOString()}>
             {created.toLocaleDateString(locale)}
           </time>
           {updated && updated > created && (
             <>
-              {' - '}
-              <time dateTime={updated.toISOString()}>
+              <span className="sr-only">Updated at</span>
+              <time dateTime={updated.toISOString()} className="sr-only">
                 {updated.toLocaleDateString(locale)}
               </time>
             </>
@@ -55,7 +56,7 @@ export function Post({
           ))}
         </ul>
       </header>
-      <div>{content}</div>
+      <div className="prose">{content}</div>
     </article>
   )
 }
