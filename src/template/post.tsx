@@ -36,7 +36,8 @@ export function Post({
         <DateTime created={created} updated={updated} />
       </header>
       <Tags tags={tags} />
-      <div className="prose">{content}</div>
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: the content is stored as HTML */}
+      <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />
     </article>
   )
 }

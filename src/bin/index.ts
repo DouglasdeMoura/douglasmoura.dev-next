@@ -1,8 +1,8 @@
-/*
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
-import { PostEntity } from '../entities/post'
-import { POSTS_PATH } from '../constants'
+import { PostEntity } from '../entities/post.js'
+import { POSTS_PATH } from '../constants/index.js'
+import { marked } from 'marked'
 
 async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
@@ -29,7 +29,7 @@ async function indexPosts() {
       locale: data.locale,
       created: new Date(data.created),
       updated: new Date(data.updated),
-      content,
+      content: await marked(content),
       tags: data.tags.split(', '),
       translates: data.translates,
     })
