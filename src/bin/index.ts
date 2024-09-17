@@ -9,7 +9,7 @@ async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
 }
 
-const md = MarkdownIt()
+const md = MarkdownIt({ html: true, linkify: true, typographer: true })
 
 md.use(
   await Shiki({
