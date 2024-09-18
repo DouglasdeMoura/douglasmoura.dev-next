@@ -3,6 +3,7 @@ import matter from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import sup from 'markdown-it-sup'
 import footnote from 'markdown-it-footnote'
+import katex from 'markdown-it-katex'
 import Shiki from '@shikijs/markdown-it'
 
 import { PostEntity } from '../entities/post.js'
@@ -16,6 +17,7 @@ const md = MarkdownIt({ html: true, linkify: true, typographer: true })
 
 md.use(sup)
 md.use(footnote)
+md.use(katex)
 
 md.use(
   await Shiki({
