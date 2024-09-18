@@ -1,15 +1,21 @@
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
+import MarkdownIt from 'markdown-it'
+import sup from 'markdown-it-sup'
+import footnote from 'markdown-it-footnote'
+import Shiki from '@shikijs/markdown-it'
+
 import { PostEntity } from '../entities/post.js'
 import { POSTS_PATH } from '../constants/index.js'
-import Shiki from '@shikijs/markdown-it'
-import MarkdownIt from 'markdown-it'
 
 async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
 }
 
 const md = MarkdownIt({ html: true, linkify: true, typographer: true })
+
+md.use(sup)
+md.use(footnote)
 
 md.use(
   await Shiki({
