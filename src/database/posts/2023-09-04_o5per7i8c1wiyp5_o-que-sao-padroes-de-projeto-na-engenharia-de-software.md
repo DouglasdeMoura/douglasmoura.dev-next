@@ -1,12 +1,13 @@
 ---
 id: o5per7i8c1wiyp5
 locale: pt-BR
-title: 'O que são padrões de projeto na engenharia de software?'
+title: "O que são padrões de projeto na engenharia de software?"
 created: 2023-09-04 20:00:07.730Z
 updated: 2023-09-11 19:50:55.358Z
 tags: Engenharia de Software, Padrões de Projeto
-translates: 
+translates:
 ---
+
 No livro [_A Pattern Language_](https://en.wikipedia.org/wiki/A_Pattern_Language), Christopher Alexander e seus colegas definem um padrão como:
 
 > Cada padrão descreve um problema que ocorre repetidamente em nosso ambiente e, em seguida, descreve o núcleo da solução para esse problema, de tal forma que você pode usar essa solução um milhão de vezes, sem nunca fazê-lo da mesma maneira duas vezes.
@@ -45,76 +46,80 @@ content="PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI
 E este é o código:
 
 ```javascript
-import { AsyncDatabase } from 'promised-sqlite3'
+import { AsyncDatabase } from "promised-sqlite3";
 
 const db = await AsyncDatabase.open(
   // caminho para o arquivo do banco de dados SQLite
-  process.env.DATABASE_URL,
-)
+  process.env.DATABASE_URL
+);
 
 export class ActiveRecord {
   constructor({ database = db, tableName }) {
-    this.database = database
-    this.tableName = tableName
+    this.database = database;
+    this.tableName = tableName;
   }
 
-  all(columns = '*') {
-    const cols = Array.isArray(columns) ? columns.join(', ') : columns
+  all(columns = "*") {
+    const cols = Array.isArray(columns) ? columns.join(", ") : columns;
 
-    return this.database.all(`SELECT ${cols} FROM ${this.tableName}`)
+    return this.database.all(`SELECT ${cols} FROM ${this.tableName}`);
   }
 
-  async findById(id, columns = '*') {
-    const cols = Array.isArray(columns) ? columns.join(', ') : columns
+  async findById(id, columns = "*") {
+    const cols = Array.isArray(columns) ? columns.join(", ") : columns;
     const statement = await this.database.prepare(
-      `SELECT ${cols} FROM ${this.tableName} WHERE id = $id`, { $id: id },
-    )
+      `SELECT ${cols} FROM ${this.tableName} WHERE id = $id`,
+      { $id: id }
+    );
 
-    return statement.get()
+    return statement.get();
   }
 
   async create(data) {
-    const columns = Object.keys(data)
-    const values = Object.values(data)
+    const columns = Object.keys(data);
+    const values = Object.values(data);
     const statement = await this.database.prepare(
-      `INSERT INTO ${this.tableName} (${columns.join(', ')}) VALUES (${columns.map(() => '?').join(', ')})`,
-      values,
-    )
+      `INSERT INTO ${this.tableName} (${columns.join(", ")}) VALUES (${columns
+        .map(() => "?")
+        .join(", ")})`,
+      values
+    );
 
-    return statement.run()
+    return statement.run();
   }
 
   async update(id, data) {
-    const columns = Object.keys(data)
-    const values = Object.values(data)
+    const columns = Object.keys(data);
+    const values = Object.values(data);
     const statement = await this.database.prepare(
-      `UPDATE ${this.tableName} SET ${columns.map(column => `${column} = ?`).join(', ')} WHERE id = $id`,
-      [...values, id],
-    )
+      `UPDATE ${this.tableName} SET ${columns
+        .map((column) => `${column} = ?`)
+        .join(", ")} WHERE id = $id`,
+      [...values, id]
+    );
 
-    return statement.run()
+    return statement.run();
   }
 
   async delete(id) {
     const statement = await this.database.prepare(
       `DELETE FROM ${this.tableName} WHERE id = $id`,
-      { $id: id },
-    )
+      { $id: id }
+    );
 
-    return statement.run()
+    return statement.run();
   }
 }
 
 export class Book extends ActiveRecord {
   constructor() {
-    super({ tableName: 'books' })
+    super({ tableName: "books" });
   }
 }
 ```
 
-<Alert title="Atenção" mb="md" color="yellow">
-A implementação acima é apenas um exemplo didático. Não há preocupações com segurança ou validação de dados antes de inseri-los ou atualizar os dados no banco de dados.
-</Alert>
+> [!warning] Atenção
+> A implementação acima é apenas um exemplo didático. Não há preocupações com segurança ou validação de dados antes de inseri-los ou atualizar os dados no banco de dados.
 
 Note que todo o SQL necessário para manipular os dados no nosso banco SQLite está encapsulado na classe `ActiveRecord`. Além disso, a classe `Book` herda todos os métodos da classe `ActiveRecord` e, portanto, não é necessário escrever o mesmo código para cada tabela do banco de dados. Desse modo, é possível criar várias entidades distintas no nosso sistema, como `Author`, `Publisher`, `Category`, `BookCategory`, `BookAuthor`, `BookPublisher`, etc. Todas elas herdam os métodos da classe `ActiveRecord` e, portanto, não é necessário escrever o mesmo código para cada tabela do banco de dados.
 
@@ -123,17 +128,17 @@ Mais que isso, podemos reimplementar os métodos da classe pai na classe filha, 
 ```javascript
 export class Book extends ActiveRecord {
   constructor() {
-    super({ tableName: 'books' })
+    super({ tableName: "books" });
   }
 
   async delete(id) {
     const statement = await this.database.prepare(
       // Não se esqueça de adicionar a coluna `deleted` na tabela `books`
       `UPDATE ${this.tableName} SET deleted = true WHERE id = $id`,
-      { $id: id },
-    )
+      { $id: id }
+    );
 
-    return statement.run()
+    return statement.run();
   }
 }
 ```

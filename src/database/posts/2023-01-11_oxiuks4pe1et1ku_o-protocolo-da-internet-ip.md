@@ -1,16 +1,17 @@
 ---
 id: oxiuks4pe1et1ku
 locale: pt-BR
-title: 'O protocolo da internet (IP)'
+title: "O protocolo da internet (IP)"
 created: 2023-01-11 13:20:20.751Z
 updated: 2023-08-12 13:15:55.254Z
 tags: Iniciantes, Internet
-translates: 
+translates:
 ---
+
 O protocolo de internet é, como o próprio nome já diz, um protocolo que define como blocos de dados (chamados **datagramas**) serão transmitidos entre computadores na internet. Cada computador da rede possui, pelo menos um endereço com o qual é identificado na rede. Este endereço é chamado de **endereço de IP**.
 
-
-<Alert title="Mas, o que é um protocolo?" mb="md" color="blue">De maneira sucinta, um protocolo é uma definição do formato e da ordem das mensagens trocadas entre duas ou mais entidades, que são, no nosso caso, computadores. Um protocolo define o que deve ser feito quando uma mensagem é enviada ou recebida, e também o que deve ser feito quando um evento ocorre.</Alert>
+> [!note] Mas, o que é um protocolo?
+> De maneira sucinta, um protocolo é uma definição do formato e da ordem das mensagens trocadas entre duas ou mais entidades, que são, no nosso caso, computadores. Um protocolo define o que deve ser feito quando uma mensagem é enviada ou recebida, e também o que deve ser feito quando um evento ocorre.
 
 O protocolo de internet foi definido, pela primeira vez, no artigo "A Protocol for Packet Network Intercommunication" em maio de 1974, publicado pelo [IEEE](https://www.ieee.org/), escrito por Vinton Cerf e Robert Kahn.
 
@@ -95,6 +96,7 @@ dependem do meio de transmissão (fibra ótica, cabo coaxial, cabo de par tranç
 ---
 
 **Referências**
+
 - [Internet Protocol (IP)](https://www.techtarget.com/searchunifiedcommunications/definition/Internet-Protocol);
 - [RFC 791 - Internet Protocol](https://www.rfc-editor.org/rfc/rfc791);
 - [RFC 3439 - Some Internet Architectural Guidelines and Philosophy](https://www.rfc-editor.org/rfc/rfc3439);

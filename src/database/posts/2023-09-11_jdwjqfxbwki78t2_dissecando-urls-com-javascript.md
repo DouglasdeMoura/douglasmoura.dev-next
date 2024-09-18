@@ -1,21 +1,21 @@
 ---
 id: jdwjqfxbwki78t2
 locale: pt-BR
-title: 'Dissecando URLs com JavaScript'
+title: "Dissecando URLs com JavaScript"
 created: 2023-09-11 12:48:41.199Z
 updated: 2023-09-11 12:52:25.736Z
 tags: javascript, html, Node.js
-translates: 
+translates:
 ---
+
 Vamos entender o que significa cada parte de uma URL (Uniform Resource Locator). Observe a URL abaixo:
 
 ```
 https://user:password@blog.exemple.com.br:443/posts?s=javascript&tags[]=html&tags[]=css#top
 ```
 
-<Alert title="URL (Uniform Resource Locator)" color="blue" mb="md">
-Uma URL é um endereço de uma localização específica na web e uma mecanismo que especifica a forma de recuperar este conteúdo, que pode ser um documento, uma imagem, um vídeo, etc.
-</Alert>
+> [!note] URL (Uniform Resource Locator)
+> Uma URL é um endereço de uma localização específica na web e uma mecanismo que especifica a forma de recuperar este conteúdo, que pode ser um documento, uma imagem, um vídeo, etc.
 
 - `https://`: **Protocolo de comunicação** (padrão de comunicação utilizado entre o cliente e o servidor);
 - `user:password@`: **Credenciais de autenticação para o [esquema Basic](https://datatracker.ietf.org/doc/html/rfc7617)** (obviamente, por questões de segurança, você **não** deve colocar suas credenciais diretamente na URL - inclusive, alguns navegadores [já não permitem mais isso](https://crbug.com/82250#c7));
@@ -85,4 +85,3 @@ console.log(url.searchParams.get("tags")); // ['html', 'css']
 ## Uma nota importante sobre a âncora
 
 Os navegadores não enviam a âncora para o servidor, de modo que, no nosso exemplo, os caracteres `#top` só é acessível do lado do navegador. Algumas pessoas utilizam este recurso para armazenar o estado da aplicação ou informações encriptadas na URL que só serão acessíveis do lado do navegador, sem nunca ter acesso à isso pelo servidor.
-

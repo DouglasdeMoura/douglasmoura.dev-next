@@ -5,6 +5,7 @@ import sup from 'markdown-it-sup'
 import footnote from 'markdown-it-footnote'
 import katex from 'markdown-it-katex'
 import Shiki from '@shikijs/markdown-it'
+import alerts from 'markdown-it-github-alerts'
 
 import { PostEntity } from '../entities/post.js'
 import { POSTS_PATH } from '../constants/index.js'
@@ -18,6 +19,7 @@ const md = MarkdownIt({ html: true, linkify: true, typographer: true })
 md.use(sup)
 md.use(footnote)
 md.use(katex)
+md.use(alerts)
 
 md.use(
   await Shiki({
@@ -30,7 +32,6 @@ md.use(
 
 const defaultRender = md.renderer.rules.html_block
 md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
-  console.log(tokens[idx].content)
   if (tokens[idx].content.startsWith('<SVG64')) {
     const content = tokens[idx].content
       .replace('<SVG64 content="', '')

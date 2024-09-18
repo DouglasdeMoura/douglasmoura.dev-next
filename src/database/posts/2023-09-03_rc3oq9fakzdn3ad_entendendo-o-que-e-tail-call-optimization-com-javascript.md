@@ -1,38 +1,39 @@
 ---
 id: rc3oq9fakzdn3ad
 locale: pt-BR
-title: 'Entendendo o que é Tail Call Optimization com JavaScript'
+title: "Entendendo o que é Tail Call Optimization com JavaScript"
 created: 2023-09-03 02:40:27.535Z
 updated: 2023-10-24 15:13:47.577Z
 tags: javascript, algorithms, mathematic, Node.js
 translates: 8mgwfzzig2t1wd9
 ---
+
 Considere a seguinte função que calcula o fatorial de um número:
 
 ```javascript
 const factorial = (n) => {
-  let result = 1
+  let result = 1;
 
   while (n > 1) {
-    result *= n
-    n--
+    result *= n;
+    n--;
   }
 
-  return result
-}
+  return result;
+};
 ```
-<Alert title="Fatorial" mb="md" color="blue">
-Em matemática, o fatorial de um inteiro n não negativo (n!), é o produto de todos os inteiros positivos menores ou iguais a n.
-</Alert>
+
+> [!note] Fatorial
+> Em matemática, o fatorial de um inteiro n não negativo (n!), é o produto de todos os inteiros positivos menores ou iguais a n.
 
 A função acima foi implementada de forma iterativa, ou seja, ela utiliza um laço de repetição para calcular o fatorial de um número. Porém, é possível implementar a mesma função de forma recursiva (ou seja: uma função que referencia a si mesma):
 
 ```javascript
 const factorial = (n) => {
-  if (n === 0) return 1
+  if (n === 0) return 1;
 
-  return n * factorial(n - 1)
-}
+  return n * factorial(n - 1);
+};
 ```
 
 O resultado de ambas às funções é o mesmo, porém, a função iterativa é [muito mais eficiente](https://jsben.ch/1qyl8) (no JavaScript) que a função recursiva. Além disso, se tentarmos calcular o fatorial de um número muito grande, nós deparamos com o erro RangeError: Maximum call stack size exceeded. Vamos entender o porquê disso e como podemos melhorar a função recursiva.
@@ -65,16 +66,16 @@ Ora, descobrimos que nossa função para calcular fatorial não é _tail recursi
 
 ```javascript
 const factorial = (n) => {
-  return factorialHelper(n, 1)
-}
+  return factorialHelper(n, 1);
+};
 
 const factorialHelper = (x, accumulator) => {
   if (x <= 1) {
-    return accumulator
+    return accumulator;
   }
 
-  return factorialHelper(x - 1, x * accumulator)
-}
+  return factorialHelper(x - 1, x * accumulator);
+};
 ```
 
 Agora, sim, nossa função é _tail recursive_: a última coisa que ela faz é chamar uma função (e não calcular uma expressão, como na primeira implementação).Agora, vamos ver o modelo de substituição para o cálculo do fatorial de 6 com a nossa nova função `factorial`:
@@ -83,67 +84,67 @@ Agora, sim, nossa função é _tail recursive_: a última coisa que ela faz é c
 
 [O desempenho é superior](https://jsben.ch/vOf9P) ao da nossa primeira implementação, apesar de ainda não bater o desempenho da função iterativa. Porém, ainda nos deparamos com o erro `RangeError: Maximum call stack size exceeded`. Mas, por que isso acontece? Porque, apesar de nossa função ser _tail recursive_, as atuais versões do Node.js e os navegadores ([com exceção do Safari](https://webkit.org/blog/6240/ecmascript-6-proper-tail-calls-in-webkit/)) não implementa Tail Call Optimization (apesar de sua inclusão na especificação do [EcmaScript](https://262.ecma-international.org/6.0/#sec-tail-position-calls) desde 2015).
 
-Mas, como resolveremos este problema? Com a ajuda de outra função, claro! Para isso, vamos contar com a ajuda do padrão [Trampoline](https://en.wikipedia.org/wiki/Trampoline_(computing)):
+Mas, como resolveremos este problema? Com a ajuda de outra função, claro! Para isso, vamos contar com a ajuda do padrão [Trampoline](<https://en.wikipedia.org/wiki/Trampoline_(computing)>):
 
 ```javascript
 const trampoline = (fn) => {
-  while (typeof fn === 'function') {
-    fn = fn()
+  while (typeof fn === "function") {
+    fn = fn();
   }
 
-  return result
-}
+  return result;
+};
 ```
 
 Nossas função trampoline consiste em um laço de repetição que invoca uma função que envolve outra função (o que chamamos de [thunk](https://en.wikipedia.org/wiki/Thunk)) até que não haja mais funções para executar. Vamos ver como ficaria a implementação da nossa função factorial com o padrão Trampoline:
 
 ```javascript
 const trampoline = (fn) => {
-  while (typeof fn === 'function') {
-    fn = fn()
+  while (typeof fn === "function") {
+    fn = fn();
   }
 
-  return fn
-}
+  return fn;
+};
 
 const factorialHelper = (x, accumulator) => {
   if (x <= 1) {
-    return accumulator
+    return accumulator;
   }
 
   // Note que, agora, a função retorna uma função
-  return () => factorialHelper(x - 1, x * accumulator)
-}
+  return () => factorialHelper(x - 1, x * accumulator);
+};
 
 const factorial = (n) => {
-  return trampoline(factorialHelper(n, 1))
-}
+  return trampoline(factorialHelper(n, 1));
+};
 ```
 
 E agora sim, podemos chamar a nossa função factorial com um número grande, sem nos depararmos com o erro RangeError: Maximum call stack size exceeded. Claro, dependendo do fatorial que quisermos calcular, nos depararemos com um Infinity, por se tratar de um número muito grande (um número maior que o Number.MAX_SAFE_INTEGER: 253 - <sup>1</sup>). Neste caso, podemos usar o [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt):
 
 ```javascript
 const trampoline = (fn) => {
-  while (typeof fn === 'function') {
-    fn = fn()
+  while (typeof fn === "function") {
+    fn = fn();
   }
 
-  return fn
-}
+  return fn;
+};
 
 const factorialHelper = (x, accumulator) => {
   if (x <= 1) {
-    return accumulator
+    return accumulator;
   }
 
-  return () => factorialHelper(x - 1n, x * accumulator)
-}
+  return () => factorialHelper(x - 1n, x * accumulator);
+};
 
 const factorial = (n) => {
   // Convertendo os valores para BigInt
   //-------------------------------\/----------\/
-  return trampoline(factorialHelper(BigInt(n), 1n))
-}
+  return trampoline(factorialHelper(BigInt(n), 1n));
+};
 ```
 
 ## Tipando a nossa função
@@ -151,30 +152,31 @@ const factorial = (n) => {
 E, para finalizar, vamos adicionar os tipos necessários para a nossa função factorial:
 
 ```typescript
-type Thunk = bigint | (() => Thunk)
+type Thunk = bigint | (() => Thunk);
 
 const trampoline = (fn: Thunk) => {
-  while (typeof fn === 'function') {
-    fn = fn()
+  while (typeof fn === "function") {
+    fn = fn();
   }
 
-  return fn
-}
+  return fn;
+};
 
 const factorialHelper = (x: bigint, accumulator: bigint): Thunk => {
   if (x <= 1) {
-    return accumulator
+    return accumulator;
   }
 
-  return () => factorialHelper(x - 1n, x * accumulator)
-}
+  return () => factorialHelper(x - 1n, x * accumulator);
+};
 
 const factorial = (n: number) => {
-  return trampoline(factorialHelper(BigInt(n), 1n))
-}
+  return trampoline(factorialHelper(BigInt(n), 1n));
+};
 ```
 
 ## Referências
+
 - [What happened to proper tail calls in JavaScript?](https://www.mgmarlow.com/words/2021-03-27-proper-tail-calls-js/)
 - [Tail Call Optmization](https://exploringjs.com/es6/ch_tail-calls.html)
 - [Limites da recursão em JavaScript, TCO e o pattern Trampoline](http://cangaceirojavascript.com.br/limites-recursao-javascript-tco-e-pattern-trampoline/)
@@ -182,4 +184,3 @@ const factorial = (n: number) => {
 - [Factorial](https://mathworld.wolfram.com/Factorial.html)
 - [Tail Recursion Explained - Computerphile](https://www.youtube.com/watch?v=_JtPhF8MshA)
 - [Tail Call Optimization: The Musical!!](https://www.youtube.com/watch?v=-PX0BV9hGZY)
-

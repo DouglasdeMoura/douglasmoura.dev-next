@@ -1,12 +1,13 @@
 ---
 id: r244td2x5346p6e
 locale: pt-BR
-title: 'Configurando variáveis de ambiente em aplicações Node.js'
+title: "Configurando variáveis de ambiente em aplicações Node.js"
 created: 2023-09-05 21:01:49.238Z
 updated: 2023-09-05 21:06:00.400Z
 tags: Node.js, javascript
-translates: 
+translates:
 ---
+
 A partir do Node.js 20.6.0, é possível carregar variáveis de ambiente a partir de um arquivo `.env` de maneira nativa, sem a necessidade de utilizar o pacote [`dotenv`](https://www.npmjs.com/package/dotenv).
 
 Para isso, basta iniciar o seu projeto usando o seguinte comando:
@@ -15,9 +16,8 @@ Para isso, basta iniciar o seu projeto usando o seguinte comando:
 node --env-file=.env index.js
 ```
 
-<Alert title="Variáveis de ambiente" mb="md" color="blue">
-<a href="https://pt.wikipedia.org/wiki/Vari%C3%A1vel_de_ambiente">Variáveis de ambiente</a> são valores, definidos pelo usuário que podem afetar o o modo que um programa é executado no computador. Tais valores são usados para passar informações para programas, scripts e comandos, sem que seja necessário alterar o código fonte.
-</Alert>
+> [!note] Variáveis de ambiente
+> <a href="https://pt.wikipedia.org/wiki/Vari%C3%A1vel_de_ambiente">Variáveis de ambiente</a> são valores, definidos pelo usuário que podem afetar o o modo que um programa é executado no computador. Tais valores são usados para passar informações para programas, scripts e comandos, sem que seja necessário alterar o código fonte.
 
 ## E para versões mais antigas do Node.js?
 
