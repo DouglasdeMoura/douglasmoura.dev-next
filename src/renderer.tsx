@@ -1,4 +1,5 @@
 import { jsxRenderer } from 'hono/jsx-renderer'
+import { Template } from './template/components/template.js'
 
 export const renderer = jsxRenderer(({ children }, c) => {
   return (
@@ -13,7 +14,7 @@ export const renderer = jsxRenderer(({ children }, c) => {
         />
       </head>
       <body>
-        <div className="m-auto max-w-[960px]">{children}</div>
+        <Template>{children}</Template>
       </body>
     </html>
   )

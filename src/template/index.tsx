@@ -11,20 +11,11 @@ type IndexProps = {
 export function Index({ posts, currentPage, totalPages }: IndexProps) {
   return (
     <>
-      <form method="post" action="/set-locale">
-        <button name="locale" value="en-US" type="submit">
-          en
-        </button>
-        <button name="locale" value="pt-BR" type="submit">
-          pt
-        </button>
-      </form>
-      <main className="flex flex-col gap-8">
-        {!posts || posts.length === 0 ? <p>No posts found</p> : null}
-        {posts.map((post) => (
-          <Post {...post} variant="excerpt" />
-        ))}
-      </main>
+      {!posts || posts.length === 0 ? <p>No posts found</p> : null}
+      {posts.map((post) => (
+        // biome-ignore lint/correctness/useJsxKeyInIterable: not necessary for static content
+        <Post {...post} variant="excerpt" />
+      ))}
       {posts?.length > 0 ? (
         <Pagination currentPage={currentPage} totalPages={totalPages} />
       ) : null}
