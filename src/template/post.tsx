@@ -39,8 +39,11 @@ export function Post({
         <DateTime created={created} updated={updated} />
       </header>
       <Tags tags={tags} />
-      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: the content is stored as HTML */}
-      <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        className="prose-code:before:content-none prose-code:after:content-none prose"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: the content is stored as HTML
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </article>
   )
 }
