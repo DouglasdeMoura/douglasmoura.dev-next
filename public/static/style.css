@@ -1266,6 +1266,10 @@ select {
   border-width: 0;
 }
 
+.static {
+  position: static;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1276,6 +1280,10 @@ select {
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .max-w-\[960px\] {

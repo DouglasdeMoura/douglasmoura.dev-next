@@ -28,7 +28,22 @@ app.use('/static/*', serveStatic())
 
 app.post('/set-locale', async (c) => {
   const locale = (await c.req.formData()).get('locale') as string
+  const redirectFrom = (await c.req.formData()).get('redirect_from')
   setCookie(c, 'selected_localed', locale)
+
+  if (redirectFrom) {
+    const slug = redirectFrom.toString().split('/').pop() ?? ''
+    const post = await c.var.service.post.getBySlug(slug)
+
+    if (post?.translates) {
+      const translation = await c.var.service.post.getById(post.translates)
+
+      if (translation) {
+        const prefix = locale === DEFAULT_LANGUAGE ? '' : `/${locale}`
+        return c.redirect(`${prefix}/${translation.slug}`)
+      }
+    }
+  }
 
   return c.redirect('/')
 })
