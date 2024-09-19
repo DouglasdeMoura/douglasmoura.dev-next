@@ -1368,6 +1368,14 @@ select {
   padding: 0.25rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1637,6 +1645,36 @@ select {
 .data-\[checked\=true\]\:bg-white[data-checked="true"] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.prose-a\:text-blue-600 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.prose-a\:no-underline :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  text-decoration-line: none;
+}
+
+.prose-a\:hover\:border-none:hover :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  border-style: none;
+}
+
+.hover\:prose-a\:text-blue-600 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))):hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.prose-a\:hover\:no-underline:hover :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  text-decoration-line: none;
+}
+
+.hover\:prose-a\:no-underline :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))):hover {
+  text-decoration-line: none;
+}
+
+.prose-a\:hover\:decoration-inherit:hover :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  text-decoration-color: inherit;
 }
 
 .prose-code\:before\:content-none :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
