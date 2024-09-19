@@ -4,8 +4,17 @@ import MarkdownIt from 'markdown-it'
 import sup from 'markdown-it-sup'
 import footnote from 'markdown-it-footnote'
 import katex from 'markdown-it-katex'
-import Shiki from '@shikijs/markdown-it'
 import alerts from 'markdown-it-github-alerts'
+import Shiki from '@shikijs/markdown-it'
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight,
+  transformerNotationFocus,
+  transformerNotationErrorLevel,
+  transformerMetaHighlight,
+  transformerMetaWordHighlight,
+} from '@shikijs/transformers'
 
 import { PostEntity } from '../entities/post.js'
 import { POSTS_PATH } from '../constants/index.js'
@@ -27,6 +36,15 @@ md.use(
       light: 'dracula',
       dark: 'dracula',
     },
+    transformers: [
+      transformerNotationDiff(),
+      transformerNotationHighlight(),
+      transformerNotationWordHighlight(),
+      transformerNotationFocus(),
+      transformerNotationErrorLevel(),
+      transformerMetaHighlight(),
+      transformerMetaWordHighlight(),
+    ],
   }),
 )
 

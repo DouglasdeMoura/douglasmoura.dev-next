@@ -61,3 +61,49 @@
 .markdown-alert-caution .markdown-alert-title {
   @apply text-red-900;
 }
+
+.diff,
+.highlighted {
+  @apply relative inline-block -mx-4 w-[calc(100%+2rem)] px-4 before:absolute before:left-1 before:font-bold;
+}
+
+.diff.add {
+  @apply before:content-['+'] before:text-green-400 bg-[#405D43];
+}
+
+.diff.remove {
+  @apply before:content-['-'] before:text-red-400 bg-[#53222B];
+}
+
+.highlighted.error {
+  @apply !bg-[#53222B];
+}
+
+.highlighted.warning {
+  @apply !bg-yellow-900;
+}
+
+.line.highlighted,
+.highlighted-word {
+  @apply bg-[#363948];
+}
+
+.highlighted-word {
+  @apply px-1 py-0.5 rounded border border-[#BD93F9];
+}
+
+.has-focused .line:not(.focused) {
+  filter: blur(0.095rem);
+  opacity: 0.7;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.has-focused:hover .line:not(.focused) {
+  filter: none;
+  opacity: 1;
+}
+
+.shiki > code {
+  display: flex;
+  flex-direction: column;
+}
