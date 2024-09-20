@@ -1,5 +1,6 @@
 import { useTranslation } from '../../i18n/index.js'
 import { Gravatar } from './gravatar'
+import { SocialLinks } from './social-links.js'
 
 export function Aside() {
   const t = useTranslation('Aside')
@@ -13,6 +14,7 @@ export function Aside() {
           {t('Software Engineer, Musician and Jiujiteiro.')}
         </p>
       </div>
+      <SocialLinks />
     </aside>
   )
 }
