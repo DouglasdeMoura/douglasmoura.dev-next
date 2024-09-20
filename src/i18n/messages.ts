@@ -44,6 +44,10 @@ export const messages = {
       'Software Engineer, Musician and Jiujiteiro.':
         'Software Engineer, Musician and Jiujiteiro.',
     },
+    SearchInput: {
+      'Search...': 'Search...',
+      Search: 'Search',
+    },
     Post: {
       copyCode: 'Copy code',
       copied: 'Copied',
@@ -157,6 +161,10 @@ export const messages = {
     Aside: {
       'Software Engineer, Musician and Jiujiteiro.':
         'Engenheiro de software, músico e jiujiteiro.',
+    },
+    SearchInput: {
+      'Search...': 'Pesquisar...',
+      Search: 'Search',
     },
     Post: {
       copyCode: 'Copiar código',

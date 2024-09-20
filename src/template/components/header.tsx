@@ -3,6 +3,7 @@ import type { Locale } from '../../constants/index.js'
 
 import { useRequestContext } from 'hono/jsx-renderer'
 import { useTranslation } from '../../i18n/index.js'
+import { SearchInput } from './search-input.js'
 
 type NavLinkProps = {
   href: string
@@ -68,7 +69,9 @@ export function Header() {
   return (
     <header className="flex gap-5 justify-between text-sm border-b mb-8 p-4 md:py-4 md:px-0">
       <Links />
-      <div className="flex align-middle justify-center items-center">
+
+      <div className="flex gap-2 align-middle justify-center items-center">
+        <SearchInput />
         <form
           method="post"
           action="/set-locale"
