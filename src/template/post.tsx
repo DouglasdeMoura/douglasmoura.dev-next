@@ -24,7 +24,7 @@ export function Post({
   return (
     <article
       id={`post-${id}`}
-      className={`${variant} flex flex-col gap-4 border-b border-b-slate-200 max-w-prose pb-10`}
+      className={`${variant} flex flex-col gap-4 border-b border-b-slate-200 pb-8`}
     >
       <header>
         {variant === 'post' ? (

@@ -40,6 +40,10 @@ export const messages = {
       noPostsFound: 'No posts found.',
       description: 'Software Engineer, Musician and Jiujiteiro.',
     },
+    Aside: {
+      'Software Engineer, Musician and Jiujiteiro.':
+        'Software Engineer, Musician and Jiujiteiro.',
+    },
     Post: {
       copyCode: 'Copy code',
       copied: 'Copied',
@@ -83,7 +87,8 @@ export const messages = {
     },
     Bookmarks: {
       title: 'Bookmarks',
-      description: 'Here a list of interesting blogs, articles and posts I found on the web. Enjoy it!',
+      description:
+        'Here a list of interesting blogs, articles and posts I found on the web. Enjoy it!',
       video: 'Videos',
       snippet: 'Snippets',
       post: 'Posts',
@@ -149,6 +154,10 @@ export const messages = {
       noPostsFound: 'Nenhum post encontrado.',
       description: 'Engenheiro de software, músico and jiujiteiro',
     },
+    Aside: {
+      'Software Engineer, Musician and Jiujiteiro.':
+        'Engenheiro de software, músico e jiujiteiro.',
+    },
     Post: {
       copyCode: 'Copiar código',
       copied: 'Copiado',
@@ -192,7 +201,8 @@ export const messages = {
     },
     Bookmarks: {
       title: 'Favoritos',
-      description: 'Aqui está uma lista de blogs, artigos e posts interessantes que encontrei na web. Aproveite!',
+      description:
+        'Aqui está uma lista de blogs, artigos e posts interessantes que encontrei na web. Aproveite!',
       video: 'Vídeos',
       snippet: 'Snippets',
       post: 'Posts',
@@ -221,8 +231,8 @@ export const messages = {
 
 type NestedKeyOf<ObjectType extends object> = {
   [Key in keyof ObjectType & (string | number)]: ObjectType[Key] extends object
-  ? `${NestedKeyOf<ObjectType[Key]>}`
-  : `${Key}`
+    ? `${NestedKeyOf<ObjectType[Key]>}`
+    : `${Key}`
 }[keyof ObjectType & (string | number)]
 export type Messages = typeof messages
 export type Locale = keyof Messages

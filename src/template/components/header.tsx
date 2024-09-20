@@ -9,28 +9,28 @@ type NavLinkProps = {
 } & PropsWithChildren
 
 function NavLink({ href, children }: NavLinkProps) {
-  return (
-    <a href={href} className="py-2 px-3">
-      {children}
-    </a>
-  )
+  return <a href={href}>{children}</a>
 }
 
 function Links() {
   const t = useTranslation('Header')
 
   return (
-    <nav className="flex gap-4 align-middle items-center text-sm">
-      <a href="/" className="overflow-hidden rounded-full w-8">
-        <img
-          src="//gravatar.com/avatar/997c72f0b7ca0fc26bdf60ca27cb4194"
-          alt="Douglas Moura"
-        />
-      </a>
-      <NavLink href="/">{t('home')}</NavLink>
-      <NavLink href="/talks">{t('talks')}</NavLink>
-      <NavLink href="/bookmarks">{t('bookmarks')}</NavLink>
-      <NavLink href="/contact">{t('contact')}</NavLink>
+    <nav className="flex align-middle items-center text-sm font-semibold">
+      <ul className="flex space-x-8">
+        <li>
+          <NavLink href="/">{t('home')}</NavLink>
+        </li>
+        <li>
+          <NavLink href="/talks">{t('talks')}</NavLink>
+        </li>
+        <li>
+          <NavLink href="/bookmarks">{t('bookmarks')}</NavLink>
+        </li>
+        <li>
+          <NavLink href="/contact">{t('contact')}</NavLink>
+        </li>
+      </ul>
     </nav>
   )
 }
@@ -66,7 +66,7 @@ export function Header() {
   const c = useRequestContext()
 
   return (
-    <header className="flex gap-5 justify-between text-sm py-4 border-b mb-8">
+    <header className="flex gap-5 justify-between text-sm border-b mb-8 p-4 md:py-4 md:px-0">
       <Links />
       <div className="flex align-middle justify-center items-center">
         <form
