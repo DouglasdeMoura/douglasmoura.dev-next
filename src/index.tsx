@@ -10,7 +10,7 @@ import {
 } from './middleware/service.js'
 import { renderer } from './renderer.js'
 import { Error404 } from './template/404.js'
-import { Post } from './template/post.js'
+import { Post } from './template/components/post.js'
 import { Error500 } from './template/500.js'
 import { Index } from './template/index.js'
 import { setCookie } from 'hono/cookie'

@@ -1,10 +1,11 @@
-import type { PostEntity } from '../entities/post.js'
-import { DateTime } from './components/date-time.js'
-import { Tags } from './components/tags.js'
-import { Title } from './components/title.js'
+import type { PostEntity } from '../../entities/post.js'
+import { DateTime } from './date-time.js'
+import { Tags } from './tags.js'
+import { Title } from './title.js'
 
 type PostProps = {
   variant?: 'post' | 'excerpt'
+  className?: string
 } & PostEntity
 
 export function Post({
@@ -17,6 +18,7 @@ export function Post({
   tags,
   variant = 'post',
   slug,
+  className,
   // translates,
 }: PostProps) {
   const link = locale === 'en-US' ? `/${locale}/${slug}` : `/${slug}`
@@ -24,7 +26,7 @@ export function Post({
   return (
     <article
       id={`post-${id}`}
-      className={`${variant} flex flex-col gap-4 border-b border-b-slate-200 pb-8`}
+      className={`${variant} ${className} flex flex-col gap-4 pb-8`}
     >
       <header>
         {variant === 'post' ? (

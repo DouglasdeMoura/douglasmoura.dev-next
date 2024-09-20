@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'hono/jsx'
 import { Header } from './header.js'
 import { Aside } from './aside.js'
+import { Footer } from './footer.js'
 
 export function Template({ children }: PropsWithChildren) {
   return (
@@ -12,6 +13,7 @@ export function Template({ children }: PropsWithChildren) {
           {children}
         </main>
       </div>
+      <Footer />
     </div>
   )
 }

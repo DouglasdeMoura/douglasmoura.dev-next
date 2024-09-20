@@ -1438,6 +1438,10 @@ select {
   border-bottom-width: 1px;
 }
 
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
@@ -1539,6 +1543,10 @@ select {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .align-top {
