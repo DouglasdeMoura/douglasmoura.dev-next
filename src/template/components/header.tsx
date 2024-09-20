@@ -53,7 +53,7 @@ function Radio({ children, name, value, checked }: Radio) {
         className="hidden"
       />
       <span
-        className="py-[3px] px-[6px]  rounded data-[checked=true]:bg-white hover:cursor-pointer"
+        className="py-[3px] px-[6px] rounded data-[checked=true]:bg-white hover:cursor-pointer ring-offset-background"
         data-checked={checked}
       >
         {children}
@@ -72,7 +72,7 @@ export function Header() {
         <form
           method="post"
           action="/set-locale"
-          className="p-1 rounded bg-slate-200"
+          className="relative inline-grid items-center justify-center w-auto h-8 grid-cols-2 p-1 text-gray-500 bg-gray-100 rounded select-none"
         >
           <input type="hidden" name="redirect_from" value={c.req.path} />
           <Radio
