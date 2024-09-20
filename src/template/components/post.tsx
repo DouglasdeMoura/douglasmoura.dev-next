@@ -33,7 +33,11 @@ export function Post({
           <Title order={1}>{title}</Title>
         ) : (
           <Title order={2}>
-            <a href={link} rel="bookmark">
+            <a
+              href={link}
+              rel="bookmark"
+              className="transition-colors hover:text-blue-600"
+            >
               {title}
             </a>
           </Title>

@@ -12,7 +12,7 @@ export function Tags({ tags }: TagsProps) {
         <a
           key={tag}
           href={`/tags/${tag}`}
-          className="inline-block uppercase font-bold before:content-['#'] hover:opacity-80"
+          className="inline-block uppercase font-bold before:content-['#'] hover:text-blue-600 transition-colors"
         >
           {tag}
         </a>

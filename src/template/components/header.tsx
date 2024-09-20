@@ -10,7 +10,11 @@ type NavLinkProps = {
 } & PropsWithChildren
 
 function NavLink({ href, children }: NavLinkProps) {
-  return <a href={href}>{children}</a>
+  return (
+    <a href={href} className="hover:text-blue-600">
+      {children}
+    </a>
+  )
 }
 
 function Links() {
