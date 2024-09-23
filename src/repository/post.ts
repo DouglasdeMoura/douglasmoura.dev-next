@@ -20,7 +20,7 @@ export class PostRepository {
   // }
 
   async getById(id: string) {
-    const postsById = await import('../database/posts/postsById.json').then(
+    const postsById = await import('../generated/posts/postsById.json').then(
       (res) => res.default,
     )
     const data = postsById?.[id as keyof typeof postsById]
@@ -42,9 +42,9 @@ export class PostRepository {
   }
 
   async getBySlug(slug: string) {
-    const postsBySlug = await import('../database/posts/postsBySlug.json').then(
-      (res) => res.default,
-    )
+    const postsBySlug = await import(
+      '../generated/posts/postsBySlug.json'
+    ).then((res) => res.default)
     const data = postsBySlug?.[slug as keyof typeof postsBySlug]
 
     if (!data) {
@@ -64,31 +64,13 @@ export class PostRepository {
   }
 
   async getAllPosts({ locale, tag }: { locale: Locale; tag?: string }) {
-    const enUS = await import('../database/posts/en-US.json').then(
-      (res) => res.default,
-    )
-    const ptBR = await import('../database/posts/pt-BR.json').then(
-      (res) => res.default,
-    )
-    const tags = await import('../database/posts/tags.json').then(
-      (res) => res.default,
-    )
+    if (tag) {
+      const tags = await import('../generated/posts/tags.json').then(
+        (res) => res.default,
+      )
 
-    const posts = !tag
-      ? (locale === 'en-US' ? enUS : ptBR).map(
-          (post) =>
-            new PostEntity({
-              id: post.id,
-              title: post.title,
-              locale: post.locale as Locale,
-              created: new Date(post.created),
-              updated: new Date(post.updated),
-              content: post.content,
-              tags: post.tags,
-              translates: post.translates ?? undefined,
-            }),
-        )
-      : tags[tag as keyof typeof tags].reduce((acc: PostEntity[], post) => {
+      return tags[tag as keyof typeof tags].reduce(
+        (acc: PostEntity[], post) => {
           if (post.locale === locale) {
             acc.push(
               new PostEntity({
@@ -105,9 +87,33 @@ export class PostRepository {
           }
 
           return acc
-        }, [])
+        },
+        [],
+      )
+    }
 
-    return posts
+    const posts =
+      locale === 'en-US'
+        ? await import('../generated/posts/en-US.json').then(
+            (res) => res.default,
+          )
+        : await import('../generated/posts/pt-BR.json').then(
+            (res) => res.default,
+          )
+
+    return posts.map(
+      (post) =>
+        new PostEntity({
+          id: post.id,
+          title: post.title,
+          locale: post.locale as Locale,
+          created: new Date(post.created),
+          updated: new Date(post.updated),
+          content: post.content,
+          tags: post.tags,
+          translates: post.translates ?? undefined,
+        }),
+    )
   }
 
   // async update(post: PostEntity) {

@@ -150,27 +150,27 @@ async function main() {
   const data = await indexPosts()
 
   fs.writeFile(
-    './src/database/posts/postsById.json',
+    './src/generated/posts/postsById.json',
     JSON.stringify(data.postsById, null, 2),
   )
 
   fs.writeFile(
-    './src/database/posts/postsBySlug.json',
+    './src/generated/posts/postsBySlug.json',
     JSON.stringify(data.postsBySlug, null, 2),
   )
 
   fs.writeFile(
-    './src/database/posts/tags.json',
+    './src/generated/posts/tags.json',
     JSON.stringify(data.tags, null, 2),
   )
 
   fs.writeFile(
-    './src/database/posts/en-US.json',
+    './src/generated/posts/en-US.json',
     JSON.stringify(data['en-US'], null, 2),
   )
 
   fs.writeFile(
-    './src/database/posts/pt-BR.json',
+    './src/generated/posts/pt-BR.json',
     JSON.stringify(data['pt-BR'], null, 2),
   )
 }
