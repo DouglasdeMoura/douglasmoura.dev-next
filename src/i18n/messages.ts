@@ -44,6 +44,11 @@ export const messages = {
       'Software Engineer, Musician and Jiujiteiro.':
         'Software Engineer, Musician and Jiujiteiro.',
     },
+    Pagination: {
+      'Previous page': 'Previous page',
+      'Next page': 'Next page',
+      Page: 'Page',
+    },
     SearchInput: {
       'Search...': 'Search...',
       Search: 'Search',
@@ -143,6 +148,11 @@ export const messages = {
       format: `dd 'de' MMMM 'de' y`,
       published: 'Publicado em:',
       updated: 'Atualizado em:',
+    },
+    Pagination: {
+      'Previous page': 'Página anterior',
+      'Next page': 'Próxima página',
+      Page: 'Página',
     },
     Spotlight: {
       home: 'Início',
