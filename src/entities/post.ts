@@ -13,6 +13,7 @@ export class PostEntity {
   content: string
   tags: string[]
   translates?: ID
+  description?: string
 
   constructor(
     data: Omit<PostEntity, 'created' | 'updated' | 'slug'> & {
@@ -29,6 +30,7 @@ export class PostEntity {
     this.content = data.content
     this.tags = data.tags
     this.translates = data?.translates
+    this.description = data?.description
   }
 
   toString() {

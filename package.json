@@ -12,12 +12,13 @@
     "check:unsafe": "biome check --write-unsafe ./src",
     "deploy": "$npm_execpath run build && wrangler pages deploy",
     "test": "vitest",
-    "db:write-index": "bun ./src/bin/index.ts"
+    "generate": "rm -rf src/generated/posts/*.json && rm -rf src/generated/feed/*.{json,xml} && bun src/bin/index.ts"
   },
   "dependencies": {
     "@shikijs/markdown-it": "^1.17.7",
     "@sindresorhus/slugify": "^2.2.1",
     "date-fns": "^4.1.0",
+    "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "hono": "^4.6.1",
     "markdown-it-github-alerts": "^0.3.0",

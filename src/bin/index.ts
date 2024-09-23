@@ -15,9 +15,10 @@ import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
 } from '@shikijs/transformers'
+import { Feed } from 'feed'
 
 import { PostEntity } from '../entities/post.js'
-import { POSTS_PATH } from '../constants/index.js'
+import { type Locale, POSTS_PATH } from '../constants/index.js'
 
 async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
@@ -78,12 +79,72 @@ md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
   return defaultRender?.(tokens, idx, options, env, self) || ''
 }
 
+async function feed(posts: PostEntity[], locale: Locale) {
+  const config = {
+    'en-US': {
+      language: 'en',
+      copyright: 'CC BY-NC 4.0 for blog posts and MIT for code',
+      feedLinks: {
+        rss: 'https://douglasmoura.dev/en-US/rss.xml',
+        json: 'https://douglasmoura.dev/en-US/feed.json',
+        atom: 'https://douglasmoura.dev/en-US/atom.xml',
+      },
+      description: 'Software Engineer',
+      id: 'https://douglasmoura.dev/en-US',
+      link: 'https://douglasmoura.dev/en-US',
+    },
+    'pt-BR': {
+      language: 'pt',
+      copyright: 'CC BY-NC 4.0 para os artigos e MIT para o código',
+      feedLinks: {
+        rss: 'https://douglasmoura.dev/rss.xml',
+        json: 'https://douglasmoura.dev/feed.json',
+        atom: 'https://douglasmoura.dev/atom.xml',
+      },
+      description: 'Engenheiro de software',
+      id: 'https://douglasmoura.dev/',
+      link: 'https://douglasmoura.dev/',
+    },
+  }
+
+  const feedInfo = locale === 'en-US' ? config['en-US'] : config['pt-BR']
+
+  const author = {
+    name: 'Douglas Moura',
+    email: 'hello@douglasmoura.dev',
+    link: 'https://douglasmoura.dev',
+  }
+
+  const feed = new Feed({
+    title: 'Douglas de Moura',
+    author,
+    ...feedInfo,
+  })
+
+  for (const post of posts) {
+    const url = `https://douglasmoura.dev/en-US/${post.slug}`
+
+    feed.addItem({
+      title: post.title,
+      id: url,
+      link: url,
+      description: post?.description,
+      content: post.content,
+      date: post.created,
+      author: [author],
+    })
+  }
+
+  return feed
+}
+
 async function indexPosts() {
   const list = (await fileList()).reverse()
   const index: {
     tags?: Record<string, PostEntity[]>
     postsById?: Record<string, PostEntity>
     postsBySlug?: Record<string, PostEntity>
+    feed?: Record<string, Feed>
   } & Record<string, PostEntity[]> = {}
 
   for (const file of list) {
@@ -143,6 +204,11 @@ async function indexPosts() {
     )
   }
 
+  index.feed = {
+    'en-US': await feed(index['en-US'], 'en-US'),
+    'pt-BR': await feed(index['pt-BR'], 'pt-BR'),
+  }
+
   return index
 }
 
@@ -172,6 +238,36 @@ async function main() {
   fs.writeFile(
     './src/generated/posts/pt-BR.json',
     JSON.stringify(data['pt-BR'], null, 2),
+  )
+
+  fs.writeFile(
+    './src/generated/feed/en-US.json',
+    data.feed?.['en-US'].json1() as string,
+  )
+
+  fs.writeFile(
+    './src/generated/feed/pt-BR.json',
+    data.feed?.['pt-BR'].json1() as string,
+  )
+
+  fs.writeFile(
+    './src/generated/feed/rss_en-US.xml',
+    data.feed?.['en-US'].rss2() as string,
+  )
+
+  fs.writeFile(
+    './src/generated/feed/rss_pt-BR.xml',
+    data.feed?.['pt-BR'].rss2() as string,
+  )
+
+  fs.writeFile(
+    './src/generated/feed/atom_en-US.xml',
+    data.feed?.['en-US'].atom1() as string,
+  )
+
+  fs.writeFile(
+    './src/generated/feed/atom_pt-BR.xml',
+    data.feed?.['pt-BR'].atom1() as string,
   )
 }
 
