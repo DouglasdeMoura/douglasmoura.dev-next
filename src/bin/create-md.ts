@@ -1,6 +1,6 @@
 /*
 import fs from 'node:fs'
-import posts from '../database/posts.json'
+import posts from '../content/posts.json'
 
 type Post = {
   collectionId: string
@@ -77,7 +77,7 @@ const main = async () => {
   for (const post of response.items) {
     const markdown = createMarkdown(post)
     const date = new Date(post.created).toISOString().split('T')[0]
-    fs.writeFileSync(`./src/database/posts/${date}_${post.id}_${post.slug}.md`, markdown)
+    fs.writeFileSync(`./src/content/posts/${date}_${post.id}_${post.slug}.md`, markdown)
   }
 }
 

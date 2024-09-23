@@ -25,7 +25,7 @@ describe('Post Repository', () => {
     const id = await PostRepository.create(post)
 
     expect(writeFile).toHaveBeenCalledWith(
-      './src/database/posts/mocked_value.md',
+      './src/content/posts/mocked_value.md',
       post.toString(),
     )
     expect(id).toBe('mocked_value')
@@ -61,7 +61,7 @@ describe('Post Repository', () => {
     const id = await PostRepository.update(post)
 
     expect(writeFile).toHaveBeenCalledWith(
-      './src/database/posts/mocked_value.md',
+      './src/content/posts/mocked_value.md',
       post.toString(),
     )
     expect(id).toBe('mocked_value')
@@ -75,7 +75,7 @@ describe('Post Repository', () => {
   })
 
   it('should return posts path', () => {
-    expect(PostRepository.postsPath).toBe('./src/database/posts')
+    expect(PostRepository.postsPath).toBe('./src/content/posts')
   })
 
   it('should return a list of posts', async () => {
