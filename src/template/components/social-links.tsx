@@ -87,6 +87,27 @@ export function BlueSky({ size }: SVGProps) {
   )
 }
 
+export function RSS({ size }: SVGProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      className="icon icon-tabler icons-tabler-outline icon-tabler-rss"
+    >
+      <title>RSS</title>
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <path d="M4 19a1 1 0 1 0 2 0 1 1 0 1 0-2 0M4 4a16 16 0 0 1 16 16M4 11a9 9 0 0 1 9 9" />
+    </svg>
+  )
+}
+
 export function SocialLinks() {
   const links = [
     {
@@ -108,6 +129,11 @@ export function SocialLinks() {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/dougmoura',
       icon: <LinkedIn size={18} />,
+    },
+    {
+      name: 'RSS',
+      href: 'https://douglasmoura.dev/rss.xml',
+      icon: <RSS size={18} />,
     },
   ]
 
