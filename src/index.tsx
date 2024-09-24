@@ -48,6 +48,35 @@ app.post('/set-locale', async (c) => {
   return c.redirect('/')
 })
 
+app.get('rss.xml', async (c) => {
+  const feed = await c.var.service.post.getFeed({
+    locale: c.var.selectedLocale,
+  })
+
+  return new Response(feed.rss2(), {
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  })
+})
+app.get('atom.xml', async (c) => {
+  const feed = await c.var.service.post.getFeed({
+    locale: c.var.selectedLocale,
+  })
+
+  return new Response(feed.atom1(), {
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  })
+})
+app.get('feed.json', async (c) => {
+  const feed = await c.var.service.post.getFeed({
+    locale: c.var.selectedLocale,
+  })
+  return c.json(feed.json1())
+})
+
 app.on('GET', ['/search', '/en-US/search'], async (c) => {
   const query = c.req.query('q')
 

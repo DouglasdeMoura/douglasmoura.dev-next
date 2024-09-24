@@ -5,6 +5,12 @@ export const renderer = jsxRenderer(({ children }, c) => {
   return (
     <html lang={c.var.selectedLocale}>
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Douglas Moura » Feed"
+          href="https://douglasmoura.dev/feed/"
+        />
         <link href="/static/style.css" rel="stylesheet" />
         <link
           rel="stylesheet"
