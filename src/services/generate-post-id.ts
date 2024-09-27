@@ -4,11 +4,11 @@ import { nanoid } from 'nanoid'
 type GeneratePostIdArgs = {
   title: string
   id?: string
-  created: Date
+  created?: Date
 }
 
 export function generatePostId(args: GeneratePostIdArgs) {
   const id = args.id ?? nanoid()
-  const date = args.created.toISOString().split('T')[0]
+  const date = (args.created ?? new Date()).toISOString().split('T')[0]
   return `${date}_${id}_${slugify(args.title)}`
 }

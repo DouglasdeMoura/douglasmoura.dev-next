@@ -1268,6 +1268,34 @@
       "translates": null
     }
   ],
+  "offtopic": [
+    {
+      "id": "pB_B72L3AAQrHCAFCLL9b",
+      "title": "O dia em que quase fui envolvido em um crime eleitoral",
+      "slug": "o-dia-em-que-quase-fui-envolvido-em-um-crime-eleitoral",
+      "locale": "pt-BR",
+      "created": "2024-09-27T19:35:16.113Z",
+      "updated": "2024-09-27T19:35:16.113Z",
+      "content": "<p>Um jornalista acabou de entrar em contato comigo, questionando o valor de uma nota fiscal de R$ 300.000,00 emitida para um candidato do sul do Brasil. Já comecei a pensar que estavam usando o meu nome para desviar algum dinheiro e fui atrás dessa informação.</p>\n<p>Achei o candidato no <a href=\"https://divulgacandcontas.tse.jus.br/divulga/#/home\">site do TSE</a> e fui ver as notas fiscais emitidas na seção de prestação de contas. Acontece que a empresa que emitiu a nota tem quase o mesmo nome que a minha. Aliviado, expus a confusão para o jornalista e vim cortar o cabelo.</p>\n",
+      "tags": [
+        "offtopic"
+      ],
+      "translates": null
+    },
+    {
+      "id": "7ba8zyw9of4afcw",
+      "title": "Olá, mundo",
+      "slug": "ola-mundo",
+      "locale": "pt-BR",
+      "created": "2021-01-01T15:00:00.000Z",
+      "updated": "2022-12-29T14:52:10.686Z",
+      "content": "<p>Um blog sobre computação e engenharia de software não poderia começar de outra\nforma. Desde que o <a href=\"https://en.wikipedia.org/wiki/The_C_Programming_Language\">primeiro livro sobre a linguagem de programação C</a> foi publicado por Brian Kernighan e Dennis Ritchie em 1978, milhares de programadores deram\nseus primeiros passos nessa disciplina escrevendo um programa que imprime “Hello, world”\n(apesar disso, a primeira versão conhecida desse programa a ser usado como exemplo foi escrita pelo mesmo\nKernighan no seu <em>A Tutorial Introduction to the Language B</em>, de 1972).</p>\n<p>Comecei a programar em 2009, quando entrei em uma empresa para prestar suporte\ntelefônico para serviços de hospedagem de sites de um grande provedor. Comecei\nfuçando o código dos sites, corrigindo alguns problemas, fazendo blogs para amigos…\nComo muitos de vocês, minha primeira linguagem de programação foi o PHP. Na época,\neu estudava saxofone na <a href=\"https://theatromunicipal.org.br/pt-br/escola-municipal-de-musica/\">Escola Municipal de Música de São Paulo</a>\ne eu tinha aspirações de me profissionalizar na música, então, nunca levei a sério\no estudo da programação. Apesar disso, fiz vários projetos como freelancer, como\ne-commerces, sites institucionais e blogs.</p>\n<p>Em 2012, através do ProUni, consegui uma bolsa de estudos integral para estudar\nEngenharia Civil na Universidade Anhembi Morumbi. Gostava muito do curso, consegui\nestágio numa ótima empresa durante a faculdade, fiz grandes amigos durante o curso\n(com os quais tenho contato até hoje) e comecei a publicar textos sobre engenharia\ne tecnologia na internet: primeiro no <a href=\"https://blogdaengenharia.com\">Blog da Engenharia</a>\ne depois no meu próprio blog, o <a href=\"https://engenharialivre.com\">Engenharia Livre</a>.</p>\n<p>Após finalizar o curso e entregar o meu <a href=\"https://github.com/douglasdemoura/tcc\">TCC (no qual fiz um programa para calcular pontes)</a>,\njuntamente com um amigo da faculdade, iniciamos uma empresa de projetos e construção,\na <a href=\"http://constrinew.com.br/\">Constrinew Engenharia</a> (a qual está funcionando até hoje).\nMas, mesmo já empreendendo na área de construção civil, eu estava recebendo muitas\nboas oportunidades para trabalhar com programação, devido aos contatos e aos projetos\nque haviam sido entregues no passado. E em 2019, eu recebi uma proposta irrecusável\ne fui trabalhar como engenheiro de software na <a href=\"https://www.avanade.com/pt-br\">Avanade</a>.</p>\n<p>Desde então, me dedico ao estudo da engenharia de software e faço cursos para me\ntornar um programador melhor. Espero que o material que vou produzir e publicar aqui\nseja útil para as pessoas que tiverem uma jornada parecida com a minha :)</p>\n",
+      "tags": [
+        "offtopic"
+      ],
+      "translates": null
+    }
+  ],
   "editorconfig": [
     {
       "id": "fyuo9wob9vf9fz3",
@@ -2511,21 +2539,6 @@
       "tags": [
         "Elixir",
         "Palestras"
-      ],
-      "translates": null
-    }
-  ],
-  "offtopic": [
-    {
-      "id": "7ba8zyw9of4afcw",
-      "title": "Olá, mundo",
-      "slug": "ola-mundo",
-      "locale": "pt-BR",
-      "created": "2021-01-01T15:00:00.000Z",
-      "updated": "2022-12-29T14:52:10.686Z",
-      "content": "<p>Um blog sobre computação e engenharia de software não poderia começar de outra\nforma. Desde que o <a href=\"https://en.wikipedia.org/wiki/The_C_Programming_Language\">primeiro livro sobre a linguagem de programação C</a> foi publicado por Brian Kernighan e Dennis Ritchie em 1978, milhares de programadores deram\nseus primeiros passos nessa disciplina escrevendo um programa que imprime “Hello, world”\n(apesar disso, a primeira versão conhecida desse programa a ser usado como exemplo foi escrita pelo mesmo\nKernighan no seu <em>A Tutorial Introduction to the Language B</em>, de 1972).</p>\n<p>Comecei a programar em 2009, quando entrei em uma empresa para prestar suporte\ntelefônico para serviços de hospedagem de sites de um grande provedor. Comecei\nfuçando o código dos sites, corrigindo alguns problemas, fazendo blogs para amigos…\nComo muitos de vocês, minha primeira linguagem de programação foi o PHP. Na época,\neu estudava saxofone na <a href=\"https://theatromunicipal.org.br/pt-br/escola-municipal-de-musica/\">Escola Municipal de Música de São Paulo</a>\ne eu tinha aspirações de me profissionalizar na música, então, nunca levei a sério\no estudo da programação. Apesar disso, fiz vários projetos como freelancer, como\ne-commerces, sites institucionais e blogs.</p>\n<p>Em 2012, através do ProUni, consegui uma bolsa de estudos integral para estudar\nEngenharia Civil na Universidade Anhembi Morumbi. Gostava muito do curso, consegui\nestágio numa ótima empresa durante a faculdade, fiz grandes amigos durante o curso\n(com os quais tenho contato até hoje) e comecei a publicar textos sobre engenharia\ne tecnologia na internet: primeiro no <a href=\"https://blogdaengenharia.com\">Blog da Engenharia</a>\ne depois no meu próprio blog, o <a href=\"https://engenharialivre.com\">Engenharia Livre</a>.</p>\n<p>Após finalizar o curso e entregar o meu <a href=\"https://github.com/douglasdemoura/tcc\">TCC (no qual fiz um programa para calcular pontes)</a>,\njuntamente com um amigo da faculdade, iniciamos uma empresa de projetos e construção,\na <a href=\"http://constrinew.com.br/\">Constrinew Engenharia</a> (a qual está funcionando até hoje).\nMas, mesmo já empreendendo na área de construção civil, eu estava recebendo muitas\nboas oportunidades para trabalhar com programação, devido aos contatos e aos projetos\nque haviam sido entregues no passado. E em 2019, eu recebi uma proposta irrecusável\ne fui trabalhar como engenheiro de software na <a href=\"https://www.avanade.com/pt-br\">Avanade</a>.</p>\n<p>Desde então, me dedico ao estudo da engenharia de software e faço cursos para me\ntornar um programador melhor. Espero que o material que vou produzir e publicar aqui\nseja útil para as pessoas que tiverem uma jornada parecida com a minha :)</p>\n",
-      "tags": [
-        "offtopic"
       ],
       "translates": null
     }
