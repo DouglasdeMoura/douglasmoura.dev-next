@@ -8,11 +8,26 @@ export class TalkService {
   }
 
   async getAll() {
-    const talks = await this.repository.getAll()
-    return talks.map((talk) => ({
-      ...talk,
-      date: new Date(talk.date),
-    }))
+    const talks = await this.repository.getAll().then((talks) =>
+      talks.map((talk) => ({
+        ...talk,
+        date: new Date(talk.date),
+      })),
+    )
+
+    const data: Record<number, typeof talks[0][]> = {}
+
+    for (const talk of talks) {
+      const year = talk.date.getFullYear()
+
+      if (!data[year]) {
+        data[year] = []
+      }
+
+      data[year].push(talk)
+    }
+
+    return data
   }
 }
 

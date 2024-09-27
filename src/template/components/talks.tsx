@@ -3,12 +3,15 @@ import { DateTime } from './date-time.js'
 import { Title } from './title.js'
 
 type TalkProps = {
-  list: {
-    title: string
-    event: string
-    date: Date
-    link: string
-  }[]
+  list: Record<
+    number,
+    {
+      title: string
+      event: string
+      date: Date
+      link: string
+    }[]
+  >
 }
 
 export function Talks({ list }: TalkProps) {
@@ -21,17 +24,23 @@ export function Talks({ list }: TalkProps) {
       </header>
 
       <div className="prose-code:before:content-none prose-code:after:content-none prose prose-a:text-blue-600 hover:prose-a:no-underline prose-kbd:inline-flex  prose-kbd:items-center prose-kbd:justify-center prose-kbd:gap-1 prose-kbd:min-w-[30px] prose-p:m-0">
-        {list.map((talk) => (
-          <article key="" className="mb-4">
-            <header>
-              <h2 className="mb-2 mt-0 text-xl">{talk.title}</h2>
-            </header>
+        {Object.keys(list).map((year) => (
+          <div key={year}>
+            <h2 className="text-xl">{year}</h2>
 
-            <p className="text-sm">
-              <a href={talk.link}>{talk.event}</a>
-            </p>
-            <DateTime created={talk.date} updated={talk.date} />
-          </article>
+            {list[+year].map((talk) => (
+              <article key="" className="mb-4">
+                <header>
+                  <h3 className="mb-2 mt-0 text-lg">{talk.title}</h3>
+                </header>
+
+                <p className="text-sm">
+                  <a href={talk.link}>{talk.event}</a>
+                </p>
+                <DateTime created={talk.date} updated={talk.date} />
+              </article>
+            ))}
+          </div>
         ))}
       </div>
     </section>
