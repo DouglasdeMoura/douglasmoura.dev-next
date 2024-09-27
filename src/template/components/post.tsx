@@ -46,7 +46,7 @@ export function Post({
       </header>
       <Tags tags={tags} />
       <div
-        className="prose-code:before:content-none prose-code:after:content-none prose prose-a:text-blue-600 hover:prose-a:no-underline"
+        className="prose-code:before:content-none prose-code:after:content-none prose prose-a:text-blue-600 hover:prose-a:no-underline prose-kbd:inline-flex  prose-kbd:items-center prose-kbd:justify-center prose-kbd:gap-1 prose-kbd:min-w-[30px]"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: the content is stored as HTML
         dangerouslySetInnerHTML={{ __html: content }}
       />

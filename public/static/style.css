@@ -1814,6 +1814,47 @@ select {
   text-decoration-line: none;
 }
 
+.prose-kbd\:flex :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  display: flex;
+}
+
+.prose-kbd\:inline-flex :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  display: inline-flex;
+}
+
+.prose-kbd\:min-w-8 :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  min-width: 2rem;
+}
+
+.prose-kbd\:min-w-\[30px\] :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  min-width: 30px;
+}
+
+.prose-kbd\:items-center :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  align-items: center;
+}
+
+.prose-kbd\:justify-center :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  justify-content: center;
+}
+
+.prose-kbd\:gap-1 :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  gap: 0.25rem;
+}
+
+.prose-kbd\:p-2 :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  padding: 0.5rem;
+}
+
+.prose-kbd\:p-1 :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  padding: 0.25rem;
+}
+
+.prose-kbd\:px-1 :is(:where(kbd):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .prose-code\:before\:content-none :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)))::before {
   --tw-content: none;
   content: var(--tw-content);
