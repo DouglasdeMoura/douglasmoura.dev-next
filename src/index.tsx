@@ -15,6 +15,7 @@ import { Error500 } from './template/500.js'
 import { Index } from './template/index.js'
 import { setCookie } from 'hono/cookie'
 import { serveStatic } from 'hono/cloudflare-pages'
+import { Talks } from './template/components/talks.js'
 
 const app = new Hono<ServiceEnv>()
 
@@ -59,6 +60,7 @@ app.get('rss.xml', async (c) => {
     },
   })
 })
+
 app.get('atom.xml', async (c) => {
   const feed = await c.var.service.post.getFeed({
     locale: c.var.selectedLocale,
@@ -70,11 +72,18 @@ app.get('atom.xml', async (c) => {
     },
   })
 })
+
 app.get('feed.json', async (c) => {
   const feed = await c.var.service.post.getFeed({
     locale: c.var.selectedLocale,
   })
   return c.json(feed.json1())
+})
+
+app.on('GET', ['/talks', '/en-US/talks'], async (c) => {
+  const talks = await c.var.service.talk.getAll()
+
+  return c.render(<Talks list={talks} />)
 })
 
 app.on('GET', ['/search', '/en-US/search'], async (c) => {

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Criando um design system com Tailwind CSS",
+    "event": "Conferência CSS Brasil 2023",
+    "date": "2023-01-20",
+    "link": "https://design-system-com-tailwind-css.vercel.app/"
+  },
+  {
+    "title": "Desenvolvendo APIs fortemente tipadas de ponta a ponta com tRPC",
+    "event": "NodeBR #61 - Node.js como você nunca viu",
+    "date": "2023-03-01",
+    "link": "https://www.youtube.com/watch?v=tVMmVDELuLE"
+  },
+  {
+    "title": "Desenvolvendo APIs fortemente tipadas de ponta a ponta com tRPC",
+    "event": "TDC Connections",
+    "date": "2023-03-23",
+    "link": "https://thedevconf.com/tdc/2023/connections/trilha-javascript-e-node-js"
+  },
+  {
+    "title": "Processamento paralelo: Node.js vs Golang",
+    "event": "NodeBR + ThePayGroup",
+    "date": "2024-07-31",
+    "link": "https://thedevconf.com/tdc/2023/connections/trilha-javascript-e-node-js"
+  }
+]

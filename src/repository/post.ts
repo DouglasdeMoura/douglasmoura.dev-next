@@ -69,7 +69,7 @@ export class PostRepository {
         (res) => res.default,
       )
 
-      return tags[tag as keyof typeof tags].reduce(
+      return tags[tag as keyof typeof tags]?.reduce(
         (acc: PostEntity[], post) => {
           if (post.locale === locale) {
             acc.push(
@@ -89,7 +89,7 @@ export class PostRepository {
           return acc
         },
         [],
-      )
+      ) ?? []
     }
 
     const posts =
@@ -131,7 +131,7 @@ export class PostRepository {
   }: { page?: number; limit?: number; tag?: string; locale: Locale }) {
     const posts = await this.getAllPosts({ locale, tag })
     const start = page > 1 ? (page - 1) * limit : 0
-    const totalPosts = posts.length
+    const totalPosts = posts?.length ?? 0
     const totalPages = Math.ceil(totalPosts / limit)
 
     return {

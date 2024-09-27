@@ -3,6 +3,7 @@ import postService, { type PostService } from '../services/post.js'
 import { getPreferredLanguage } from '../services/get-preferred-language.js'
 import { getCookie } from 'hono/cookie'
 import type { Locale } from '../constants/index.js'
+import talkService, { type TalkService } from '../services/talk.js'
 
 export const DEFAULT_LANGUAGE: Locale = 'pt-BR'
 
@@ -10,6 +11,7 @@ export type ServiceEnv = {
   Variables: {
     service: {
       post: PostService
+      talk: TalkService
     }
     locale: Locale
     selectedLocale: Locale
@@ -19,6 +21,7 @@ export type ServiceEnv = {
 export const service = createMiddleware<ServiceEnv>(async (c, next) => {
   c.set('service', {
     post: postService,
+    talk: talkService,
   })
 
   const locale = getPreferredLanguage(c.req.header('Accept-Language'))

@@ -92,7 +92,7 @@ export const messages = {
       search: 'Search',
     },
     Talks: {
-      title: 'Talks',
+      Talks: 'Talks',
     },
     Bookmarks: {
       title: 'Bookmarks',
@@ -215,7 +215,7 @@ export const messages = {
       search: 'Pesquisar',
     },
     Talks: {
-      title: 'Palestras',
+      Talks: 'Palestras',
     },
     Bookmarks: {
       title: 'Favoritos',
