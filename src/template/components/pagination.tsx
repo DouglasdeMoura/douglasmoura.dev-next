@@ -50,10 +50,10 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
   const getLinks = () => {
     const links = []
-    for (let i = 1; i <= totalPages - 1; i++) {
+    for (let i = 1; i <= totalPages; i++) {
       if (currentPage === i) {
         links.push(
-          <span class="page-numbers rounded w-8 h-8 flex items-center justify-center border current">
+          <span class="page-numbers inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border h-10 w-10">
             <span class="meta-nav sr-only">{t('Page')} </span>
             {i}
           </span>,
@@ -63,7 +63,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
       links.push(
         <a
-          class="page-numbers rounded w-8 h-8 flex items-center justify-center border"
+          class="page-numbers inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-200 h-10 w-10"
           href={`/page/${i}`}
         >
           <span class="meta-nav sr-only">{t('Page')} </span>
@@ -80,14 +80,14 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
       <div class="nav-links flex gap-4">
         {currentPage > 1 ? (
           <a
-            class="prev page-numbers rounded w-8 h-8 flex items-center justify-center border"
+            class="prev page-numbers rounded hover:bg-gray-200 w-10 h-10 flex items-center justify-center"
             href={`/page/${currentPage - 1}`}
           >
             <ChevronLeft />
             <span className="sr-only">{t('Previous page')}</span>
           </a>
         ) : (
-          <span class="prev page-numbers rounded w-8 h-8 flex items-center justify-center border opacity-80">
+          <span class="prev page-numbers rounded w-10 h-10 flex items-center justify-center opacity-80">
             <ChevronLeft />
             <span className="sr-only">{t('Previous page')}</span>
           </span>
@@ -95,14 +95,14 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
         {getLinks()?.map((link) => link)}
         {currentPage < totalPages ? (
           <a
-            class="next page-numbers rounded w-8 h-8 flex items-center justify-center border"
+            class="next page-numbers rounded hover:bg-gray-200 w-10 h-10 flex items-center justify-center"
             href={`/page/${currentPage + 1}`}
           >
             <span className="sr-only">{t('Next page')}</span>
             <ChevronRight />
           </a>
         ) : (
-          <span class="next page-numbers rounded w-8 h-8 flex items-center justify-center border">
+          <span class="next page-numbers rounded w-10 h-10 flex items-center justify-center">
             <span className="sr-only">{t('Next page')}</span> <ChevronRight />
           </span>
         )}
