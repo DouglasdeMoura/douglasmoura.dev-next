@@ -1,11 +1,11 @@
 ---
 id: qky4tlh4sx84esg
 locale: pt-BR
-title: 'Como criar um indicador de carregamento perfeito para seus web apps'
+title: "Como criar um indicador de carregamento perfeito para seus web apps"
 created: 2021-03-03 15:00:00.000Z
 updated: 2023-08-12 13:45:55.590Z
 tags: html, javascript
-translates: 
+translates:
 ---
 
 Web apps são complexos e, mantê-los acessíveis para pessoas com necessidades
@@ -68,7 +68,9 @@ um usuário selecionar um planeta da lista:
 <p>
   <small>
     Com informações da
-    <a href="https://en.wikipedia.org/wiki/Solar_System#Inner_Solar_System">Wikipedia</a>
+    <a href="https://en.wikipedia.org/wiki/Solar_System#Inner_Solar_System"
+      >Wikipedia</a
+    >
   </small>
 </p>
 ```
@@ -78,15 +80,15 @@ que o parte do conteúdo exibido na tela é dinâmico. Para fazermos isso, usamo
 atributo `aria-live`<sup>[1](#aria-live-regions)</sup>, o qual pode receber um dos três argumentos:
 
 1. `off`: atributo padrão para todos os elementos da página. Normalmente, você
-não precisa definir este atributo de maneira explícita;
+   não precisa definir este atributo de maneira explícita;
 2. `assertive`: interrompe a leitura da tecnologia assistiva de maneira abrupta.
-Só deve ser utilizado para notificações críticas ou que requeiram a atenção imediata
-do usuário;
+   Só deve ser utilizado para notificações críticas ou que requeiram a atenção imediata
+   do usuário;
 3. `polite`: indica que a uma região da página foi atualizada, mas não requer a
-atenção imediata do usuário. É o atributo utilizado com mais frequência.
+   atenção imediata do usuário. É o atributo utilizado com mais frequência.
 
 Também utilizamos o atributo `aria-busy` para informar aos leitores de tela que
-a região está aguardando uma atualiação. Este atributo só aceita valores *booleanos*:
+a região está aguardando uma atualiação. Este atributo só aceita valores _booleanos_:
 `true` ou `false`.
 
 Se você leu o código acima com atenção, verá que definimos outros atributos:
@@ -94,51 +96,57 @@ Se você leu o código acima com atenção, verá que definimos outros atributos
 O primeiro indica qual elemento o formulário controla, enquanto o segundo facilita
 o acesso à região para pessoas que só podem utilizar o teclado para navegar na página.
 
-Agora, vamos adicionar um pouco de JavaScript para  selecionar os dados dos
+Agora, vamos adicionar um pouco de JavaScript para selecionar os dados dos
 planetas selecionados em nosso formulário:
 
 ```javascript
 const PLANETAS = {
   mercurio: {
-    nome: 'Mercúrio',
-    descricao: 'Mercúrio é o menor e mais interno planeta do Sistema Solar. Tem o nome da divindade romana Mercúrio, o mensageiro dos deuses.'
+    nome: "Mercúrio",
+    descricao:
+      "Mercúrio é o menor e mais interno planeta do Sistema Solar. Tem o nome da divindade romana Mercúrio, o mensageiro dos deuses.",
   },
   venus: {
-    nome: 'Vênus',
-    descricao: 'Vênus é o segundo planeta depois do Sol. Foi nomeado em homenamgem à deusa romana do amor e da beleza.'
+    nome: "Vênus",
+    descricao:
+      "Vênus é o segundo planeta depois do Sol. Foi nomeado em homenamgem à deusa romana do amor e da beleza.",
   },
   terra: {
-    nome: 'Terra',
-    descricao: 'A Terra é o terceiro planeta depois do Sol e o único planeta conhecido capaz de suportar a vida.'
+    nome: "Terra",
+    descricao:
+      "A Terra é o terceiro planeta depois do Sol e o único planeta conhecido capaz de suportar a vida.",
   },
   marte: {
-    nome: 'Marte',
-    descricao: 'Marte é o quarto planeta depois do Sol e o segundo menor planeta do Sistema Solar. Seu nome é uma homenagem ao deus romano da Guerra. Também é conhecido com o "Planeta Vermelho".'
-  }
-}
+    nome: "Marte",
+    descricao:
+      'Marte é o quarto planeta depois do Sol e o segundo menor planeta do Sistema Solar. Seu nome é uma homenagem ao deus romano da Guerra. Também é conhecido com o "Planeta Vermelho".',
+  },
+};
 
 function renderizaInformacoesDoPlaneta(planeta) {
-  const planetaInformacoes = document.getElementById('planetaInformacoes');
-  const planetaNome = document.getElementById('planetaNome');
-  const planetaDescricao = document.getElementById('planetaDescricao');
+  const planetaInformacoes = document.getElementById("planetaInformacoes");
+  const planetaNome = document.getElementById("planetaNome");
+  const planetaDescricao = document.getElementById("planetaDescricao");
 
-  planetaInformacoes.setAttribute('aria-busy', 'true');
+  planetaInformacoes.setAttribute("aria-busy", "true");
 
   setTimeout(() => {
     if (planeta in PLANETAS) {
       planetaNome.textContent = PLANETAS[planeta].nome;
       planetaDescricao.textContent = PLANETAS[planeta].descricao;
     } else {
-      planetaNome.textContent = 'Nenhum planeta selecionado';
-      planetaDescricao.textContent = 'Selecione um planeta para ver sua descrição';
+      planetaNome.textContent = "Nenhum planeta selecionado";
+      planetaDescricao.textContent =
+        "Selecione um planeta para ver sua descrição";
     }
 
-    planetaInformacoes.setAttribute('aria-busy', 'false');
+    planetaInformacoes.setAttribute("aria-busy", "false");
   }, 1100);
 }
 
-document.getElementById('planetasSelect')
-  .addEventListener('change', event => {
+document
+  .getElementById("planetasSelect")
+  .addEventListener("change", (event) => {
     renderizaInformacoesDoPlaneta(event.target.value);
   });
 ```
@@ -162,7 +170,7 @@ que seja igual a `true`, diminuiremos a opacidade do elemento e adicionaremos um
 }
 
 [aria-busy="true"]:before {
-  content: '';
+  content: "";
   display: block;
   border: 6px solid transparent;
   border-top-color: purple;
@@ -188,14 +196,13 @@ que seja igual a `true`, diminuiremos a opacidade do elemento e adicionaremos um
 
 Depois de tudo isso, podemos ver o nosso exemplo em ação:
 
-<iframe height="350" style="width: 100%" scrolling="no" title="Exemplo de loading acessível" src="https://codepen.io/douglasdemoura/embed/poNqmYq?default-tab=" frameBorder="no" loading="lazy" />
+<iframe height="350" style="width: 100%" scrolling="no" title="Exemplo de loading acessível" src="https://codepen.io/douglasdemoura/embed/poNqmYq?default-tab=" frameBorder="no" loading="lazy"></iframe>
 
 Experimente utilizar um leitor de tela no exemplo que acabamos de construir e veja
 como os atributos que adicionados ao nosso exemplo fornecem uma boa experiência de
 uso para usuários com necessidades especiais. Claro que podemos chegar ao mesmo
 resultado de diversas outras formas, mas é importante sempre levarmos em consideração
 se a nossa aplicação é acessível.
-
 
 <p><small>
   <abbr title="Post scriptum">P.S.</abbr>: interaja e edite o código deste exemplo no <a href="https://codepen.io/douglasdemoura/pen/poNqmYq" target="_blank">CodePen</a>.
