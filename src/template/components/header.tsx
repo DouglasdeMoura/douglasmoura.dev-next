@@ -87,7 +87,7 @@ export function Header() {
             value="en-US"
             checked={c.var.selectedLocale === 'en-US'}
           >
-            <abbr title="English">pt</abbr>
+            <abbr title="English">en</abbr>
           </Radio>
           <Radio
             name="locale"
