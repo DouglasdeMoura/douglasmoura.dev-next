@@ -87,14 +87,14 @@ export function Header() {
             value="en-US"
             checked={c.var.selectedLocale === 'en-US'}
           >
-            en
+            <abbr title="English">pt</abbr>
           </Radio>
           <Radio
             name="locale"
             value="pt-BR"
             checked={c.var.selectedLocale === 'pt-BR'}
           >
-            pt
+            <abbr title="Português">pt</abbr>
           </Radio>
         </form>
       </div>
