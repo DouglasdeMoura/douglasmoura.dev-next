@@ -17,7 +17,7 @@ import {
 } from '@shikijs/transformers'
 
 import { PostEntity } from '../entities/post.js'
-import { type Locale, POSTS_PATH } from '../constants/index.js'
+import { POSTS_PATH } from '../constants/index.js'
 
 async function fileList() {
   return (await fs.readdir(POSTS_PATH)).map((file) => `${POSTS_PATH}/${file}`)
